@@ -1,0 +1,9 @@
+//
+// Created by huc3 on 6/10/2021.
+//
+
+#ifndef TOWERDEFENSE_COORDINATES_H
+#define TOWERDEFENSE_COORDINATES_H
+
+
+#endif //TOWERDEFENSE_COORDINATES_H
