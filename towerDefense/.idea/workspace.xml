@@ -12,7 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de2d4f42-7c6c-4e3b-a280-f8042aba93cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Coordinates.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coordinate.h" beforeDir="false" afterPath="$PROJECT_DIR$/Coordinate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoordinatesFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/CoordinatesFactory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/towerDefense.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/towerDefense.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/towerDefense.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/towerDefense.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/towerDefense.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/towerDefense.exe" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
