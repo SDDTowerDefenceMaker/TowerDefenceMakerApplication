@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/huc3/Documents/ArchSummer/Software Development & Docume/towerDefense/main.cpp" "C:/Users/huc3/Documents/ArchSummer/Software Development & Docume/towerDefense/cmake-build-debug/CMakeFiles/towerDefense.dir/main.cpp.obj"
+  "C:/Users/huc3/Documents/GitHub/TowerDefenceMakerApplication/towerDefense/main.cpp" "C:/Users/huc3/Documents/GitHub/TowerDefenceMakerApplication/towerDefense/cmake-build-debug/CMakeFiles/towerDefense.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -3,4 +3,4 @@ project(towerDefense)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(towerDefense main.cpp Coordinates.h)
+add_executable(towerDefense main.cpp)
