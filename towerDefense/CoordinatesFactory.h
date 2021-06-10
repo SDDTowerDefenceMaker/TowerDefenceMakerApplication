@@ -20,10 +20,19 @@ struct myHash
 };
 class CoordinatesFactory{
 private:
-    unordered_set<Coordinate, myHash> coordinatesSet;
+    static unordered_set<Coordinate, myHash> coordinatesSet;
     CoordinatesFactory(){};
 public:
-    //static Coordinate getCoordinates(int x, int y){ return ;}
+    static Coordinate getCoordinates(int x, int y){
+        Coordinate c(x,y);
+        if(coordinatesSet.count(c)){
+            return *(coordinatesSet.find(c));
+        }else if(coordinatesSet.count(c)>1){
+            exit(1);
+        }else{
+            coordinatesSet.insert(c);
+        }
+    }
 
 };
 
