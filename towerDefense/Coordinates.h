@@ -1,9 +1,8 @@
-//
-// Created by huc3 on 6/10/2021.
-//
+#ifndef COORDINATES_H
+#define COORDINATES_H
 
-#ifndef TOWERDEFENSE_COORDINATES_H
-#define TOWERDEFENSE_COORDINATES_H
+class Coordinate() {
+	Coordinate()
+}
 
-
-#endif //TOWERDEFENSE_COORDINATES_H
+#endif
