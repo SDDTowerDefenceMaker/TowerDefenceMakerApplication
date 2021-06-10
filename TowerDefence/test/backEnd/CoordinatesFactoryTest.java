@@ -8,7 +8,7 @@ public class CoordinatesFactoryTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		assert(CoordinatesFacotry.a(1)==1);
 	}
 
 }
