@@ -50,7 +50,7 @@ public class AttackTower {
         return actualDamage;
     }
     private void calculateHealthRemaining(int actualDamage) {
-        healthPoint = min(0, healthPoint - actualDamage);
+        healthPoint = Math.min(0, healthPoint - actualDamage);
         if(healthPoint == 0) { isActive = false; }
     }
 
