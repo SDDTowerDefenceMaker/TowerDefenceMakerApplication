@@ -1,28 +1,17 @@
 package backEnd;
 
-public class Monster {
+public class DefenseTower {
 
-    private Monster() {
+    private DefenseTower() {
 	}
 
     // Attributes
-    private int attack;
-    private int attackRate;
     private int defense;
     private int healthPoint;
     private boolean isActive;
-    private int monsterCoins;
-    private Path monsterPath;
+    private int defenseTowerCoins;
 
     // Functions
-    private int getAttack() {
-        int a = attack;
-        return a;
-    }
-    private int getAttackRate() {
-        int ar = attackRate;
-        return ar;
-    }
     private int getDefense() {
         int d = defense;
         return d;
@@ -35,23 +24,19 @@ public class Monster {
         boolean ia = isActive;
         return ia;
     }
-    private int getMonsterCoins() {
-        int mc = monsterCoins;
-        return mc;
-    }
-    private Path getPath() {
-        Path p = monsterPath;
-        return p;
+    private int getTowerCoins() {
+        int dtc = defenseTowerCoins;
+        return dtc;
     }
 
-    private int calculateActualDamage(int towerDamage) {
+    private int calculateActualDamage(int monsterDamage) {
         int actualDamage = 0;
-        actualDamage = towerDamage / (1 + defense/100);
+        actualDamage = monsterDamage / (1 + defense/100);
         return actualDamage;
     }
     private void calculateHealthRemaining(int actualDamage) {
         healthPoint = Math.min(0, healthPoint - actualDamage);
         if(healthPoint == 0) { isActive = false; }
     }
-
+    
 }

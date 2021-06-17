@@ -1,8 +1,8 @@
 package backEnd;
 
-public class Citadel {
- 
-    private Citadel() {
+public class AttackTower {
+
+    private AttackTower() {
 	}
 
     // Attributes
@@ -12,7 +12,7 @@ public class Citadel {
     private int defense;
     private int healthPoint;
     private boolean isActive;
-    private int coins;
+    private int AttacktowerCoins;
 
     // Functions
     private int getAttack() {
@@ -39,9 +39,9 @@ public class Citadel {
         boolean ia = isActive;
         return ia;
     }
-    private int getCoins() {
-        int c = coins;
-        return c;
+    private int getTowerCoins() {
+        int atc = AttacktowerCoins;
+        return atc;
     }
 
     private int calculateActualDamage(int monsterDamage) {
@@ -54,14 +54,5 @@ public class Citadel {
         if(healthPoint == 0) { isActive = false; }
     }
 
-    // The citadel obtains coins when monsters are killed
-    private void obtainCoins(int monsterCoins) {
-        coins += monsterCoins;
-    }
-    // The citadel spends coins when towers are built
-    private void spendCoins(int TowerCoins) {
-        if(coins < TowerCoins) { return; }
-        coins -= TowerCoins;
-    }
-    
 }
+
