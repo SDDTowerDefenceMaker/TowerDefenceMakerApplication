@@ -3,9 +3,17 @@ package backEnd;
 public class Coordinate {
 	private int x, y;
 	
+	public Coordinate() {
+		this.x = 0;
+		this.y = 0;
+	}
 	public Coordinate(int x, int y) {
 		this.x = x;
 		this.y = y;
+	}
+	public Coordinate(Coordinate c) {
+		this.x = c.x;
+		this.y = c.y;
 	}
 	
 	public int getX() {
