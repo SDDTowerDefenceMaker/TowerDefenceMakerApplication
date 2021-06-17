@@ -2,27 +2,31 @@ package backEnd;
 
 public interface Tower {
     
-    public void buildTower(Range p);
+    public void buildTower(String towerName, Range position);
 
     // ACCESSORS
     public Range getAttackRange();
-    public int getBuildCost();
-    public int getDamage();
-    public int getDefense();
-    public int getFireRate();
-    public int getHealthPoint();
+    public Double getBuildCost();
+    public Double getDamage();
+    public Double getDefense();
+    public Double getFireRate();
+    public Double getHealthPoint();
     public boolean getIsActive();
-    public String getName();
+    public Range getPosition();
+    public String getTowerName();
+    public String getTowerType();
 
     // MODIFIERS
     public void Activate();
     public void Inactivate();
     public void setAttackRange(Range arange);
-    public void setBuildCost(int bc);
-    public void setDamage(int d);
-    public void setDefense(int d);
-    public void setFireRate(int fr);
-    public void setHealthPoint(int hp);
-    public void setName(String n);
+    public void setBuildCost(Double bc);
+    public void setDamage(Double d);
+    public void setDefense(Double d);
+    public void setFireRate(Double fr);
+    public void setHealthPoint(Double hp);
+    public void setPosition(Range r);
+    public void setTowerName(String n);
+
 
 }
