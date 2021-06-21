@@ -6,14 +6,19 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Scene extends JPanel{
+public class Scene extends JPanel implements Runnable{
 
 	private JPanel panel, mg;
-	
+	private Thread thread = new Thread(this);
+	public static int Width, Height;
+	private static Boolean isFirst = true;
+	private static Room room;
 	
 	public Scene() {
-
-		panel = new JPanel();
+		
+		thread.start();
+		
+		/*panel = new JPanel();
 		panel.setLayout(null);
 		JButton startButton = new JButton("Start");
 		startButton.setBounds(650, 350, 300, 100); //Let the start button locate at the middle of the screen
@@ -32,5 +37,41 @@ public class Scene extends JPanel{
 	
 	public JPanel getPanel() {
 		return panel;
+	}*/
+	}
+	
+	public void define() {
+		room = new Room();
+	}
+	
+	public void paintComponent( Graphics g ) {
+		if(isFirst) {
+			Width = getWidth();
+			Height = getHeight();
+			define();
+			
+			isFirst = false;
+		}
+		
+		g.clearRect(0, 0, Width, Height);
+		
+		room.draw(g);
+	}
+	
+		
+	public static int fpsFrame = 0, fps = 1000000;
+		
+	public void run() {
+		while(true) {
+				if(!isFirst) {
+					
+				}
+				repaint();
+				
+				try { 
+					Thread.sleep(1);
+				}catch(Exception e) {
+			}
+		}
 	}
 }

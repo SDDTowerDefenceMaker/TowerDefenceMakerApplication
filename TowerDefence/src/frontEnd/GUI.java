@@ -9,15 +9,19 @@ public class GUI extends JFrame{
     	setSize(new Dimension(1600, 900));
     	setLocationRelativeTo(null);
     	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	Container container = this.getContentPane();
-    	Scene homepage = new Scene();
-    	container.add(homepage.getPanel());
-    	container.add(homepage.getPanel());
+    	//Container container = this.getContentPane();
+    	//Scene homepage = new Scene();
+    	//container.add(homepage.getPanel());
     	init();
     	
     }
     
     public void init() {
+    	setLayout(new GridLayout(1,1,0,0));
+    	
+    	Scene scene = new Scene();
+    	add(scene);
+    	
     	setVisible(true);
     	
     }
