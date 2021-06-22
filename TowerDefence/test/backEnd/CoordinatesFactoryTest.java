@@ -11,7 +11,6 @@ public class CoordinatesFactoryTest {
 	public void test() {
 		assertTrue(CoordinatesFacotry.getCoordinate(0, 0).equals(CoordinatesFacotry.getCoordinate(0, 0)));
 		assertFalse(CoordinatesFacotry.getCoordinate(0, 0).equals(CoordinatesFacotry.getCoordinate(1, 0)));
-		
 	}
 
 }
