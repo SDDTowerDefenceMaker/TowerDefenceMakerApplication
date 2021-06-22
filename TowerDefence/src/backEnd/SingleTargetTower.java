@@ -10,17 +10,17 @@ public class SingleTargetTower implements Tower {
     // Attributes
     private Range attackRange;
     private Double buildCost;
-    private Double damage = 100;;
-    private Double defense = 25;
+    private Double damage = (double)100;
+    private Double defense = (double)25;
     private double fireRate = 1;
-    private Double healthPoint = 1000;
+    private Double healthPoint = (double)1000;
     private boolean isActive = true;
     private Range position = new Range();
     private String towerName = "UNTITLED";
     
 
     @Override
-    public void buildTower(Range p) {}
+    public void buildTower(String n, Range p) {}
 
     // ACCESSORS
     @Override
@@ -59,7 +59,7 @@ public class SingleTargetTower implements Tower {
         return active;
     }
     @Override
-    public String getPosition() {
+    public Range getPosition() {
         Range r = new Range(position);
         return r;
     }
@@ -85,7 +85,7 @@ public class SingleTargetTower implements Tower {
         isActive = false;
     }
     @Override
-    public void setAttackRange(Range arange, position) {
+    public void setAttackRange(Range arange) {
         if (arange.isIn(position)) {
             attackRange.copyRange(arange);;
         }
@@ -111,7 +111,7 @@ public class SingleTargetTower implements Tower {
         healthPoint = Math.max(0, hp);
     }
     @Override
-    public String setPosition(Range r) {
+    public void setPosition(Range r) {
         if ( r.isIn(attackRange) ) {
             position.copyRange(r);
         }
