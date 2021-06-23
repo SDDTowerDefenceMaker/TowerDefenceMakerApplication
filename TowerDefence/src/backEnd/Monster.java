@@ -4,6 +4,7 @@ public class Monster {
 	public MonsterType property;
 
     public Monster() {
+    	property=MonsterTypeFactory.
 	}
 
 
