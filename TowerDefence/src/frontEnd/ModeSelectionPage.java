@@ -7,6 +7,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class ModeSelectionPage {
 
@@ -47,6 +51,9 @@ public class ModeSelectionPage {
 		JButton Button_New = new JButton("New Game");
 		Button_New.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				@SuppressWarnings("unused")
+				GUI main_gui = new GUI();
 			}
 		});
 		Button_New.setBounds(164, 87, 93, 23);
@@ -75,5 +82,12 @@ public class ModeSelectionPage {
 		});
 		Button_Setup.setBounds(164, 186, 93, 23);
 		frame.getContentPane().add(Button_Setup);
+		
+		JLabel ModeSelectionTitle = new JLabel("Tower Defense Maker");
+		ModeSelectionTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		ModeSelectionTitle.setFont(new Font("SimSun", Font.BOLD, 24));
+		ModeSelectionTitle.setForeground(Color.GRAY);
+		ModeSelectionTitle.setBounds(54, 27, 322, 50);
+		frame.getContentPane().add(ModeSelectionTitle);
 	}
 }
