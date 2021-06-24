@@ -5,6 +5,9 @@ import java.util.Arrays;
 
 import com.sun.org.apache.bcel.internal.generic.FRETURN;
 
+import backEnd.Monster.MonsterCave;
+import backEnd.Monster.MonsterType;
+
 public class Map {
 	Tile[][] Tiles;
 	ArrayList<MonsterCave> monsterCaves;

@@ -1,4 +1,6 @@
-package backEnd;
+package backEnd.Tower;
+
+import backEnd.Range;
 
 public interface Tower {
     

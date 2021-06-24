@@ -1,4 +1,4 @@
-package backEnd;
+package backEnd.Monster;
 
 public class MonstersFactory {
     
