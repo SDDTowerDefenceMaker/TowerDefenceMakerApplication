@@ -10,7 +10,7 @@ import javax.swing.JScrollPane;
 
 public class ModeSelectionPage {
 
-	private JFrame frame;
+	JFrame frame;
 
 	/**
 	 * Launch the application.
