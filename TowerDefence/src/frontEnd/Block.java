@@ -3,16 +3,16 @@ package frontEnd;
 import java.awt.*;
 
 public class Block extends Rectangle{
-	public int ground;
-	public int air;
+	public int road;
+	public int grass;
 	
-	public Block(int x, int y, int width, int height, int ground, int air) {
+	public Block(int x, int y, int width, int height, int road, int grass) {
 		setBounds(x, y, width, height);
-		this.ground = ground;
-		this.air = air;
+		this.road = road;
+		this.grass = grass;
 	}
 	
 	public void draw(Graphics g) {
-		g.drawRect(x, y, width, height);
+		g.drawImage(Scene.tile_grass[grass],x,y,width,height,null);
 	}
 }

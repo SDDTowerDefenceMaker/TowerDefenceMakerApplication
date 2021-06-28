@@ -2,13 +2,15 @@ package frontEnd;
 import java.awt.*;
 
 public class Room {
-	private int worldWidth = 24;
-	private int worldHeight = 13;
+	private int worldWidth;
+	private int worldHeight;
 	public int tileSize = 64;
 	
 	public Block[][] tile;
 	
-	public Room() {
+	public Room(int x, int y) {
+		worldWidth = x;
+		worldHeight = y;
 		define();
 	}
 	

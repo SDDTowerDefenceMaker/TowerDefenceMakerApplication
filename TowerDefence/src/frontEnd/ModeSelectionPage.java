@@ -53,7 +53,8 @@ public class ModeSelectionPage {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				@SuppressWarnings("unused")
-				GUI main_gui = new GUI();
+				EnterMapSize MapSize = new EnterMapSize();
+				MapSize.frame.setVisible(true);
 			}
 		});
 		Button_New.setBounds(164, 87, 93, 23);

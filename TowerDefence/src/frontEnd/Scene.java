@@ -3,6 +3,7 @@ package frontEnd;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.*;
 
 import javax.swing.*;
 
@@ -10,11 +11,17 @@ public class Scene extends JPanel implements Runnable{
 
 	private JPanel panel, mg;
 	private Thread thread = new Thread(this);
+	
+	private int worldWidth, worldHeight;
 	public static int Width, Height;
+	public static Image[] tile_grass = new Image[100]; 
 	private static Boolean isFirst = true;
 	private static Room room;
 	
-	public Scene() {
+	public Scene(int x, int y) {
+		
+		worldWidth = x;
+		worldHeight = y;
 		
 		thread.start();
 		
@@ -41,7 +48,11 @@ public class Scene extends JPanel implements Runnable{
 	}
 	
 	public void define() {
-		room = new Room();
+		room = new Room(worldWidth, worldHeight);
+		
+		for(int i = 0; i < tile_grass.length; i++) {
+			tile_grass[i] = new ImageIcon("resource/grass.jpg").getImage();
+		}
 	}
 	
 	public void paintComponent( Graphics g ) {
