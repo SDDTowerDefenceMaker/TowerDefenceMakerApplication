@@ -4,7 +4,7 @@ import java.awt.*;
 public class Room {
 	private int worldWidth;
 	private int worldHeight;
-	public int tileSize = 64;
+	public int tileSize = 96;
 	
 	public Block[][] tile;
 	

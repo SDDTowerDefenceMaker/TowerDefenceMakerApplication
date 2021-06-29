@@ -55,6 +55,17 @@ public class EnterMapSize {
 		Lable_eg.setBounds(165, 108, 60, 15);
 		frame.getContentPane().add(Lable_eg);
 		
+		JButton Back = new JButton("Back");
+		Back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				ModeSelectionPage msp = new ModeSelectionPage();
+				msp.frame.setVisible(true);
+			}
+		});
+		Back.setBounds(110, 171, 93, 23);
+		frame.getContentPane().add(Back);
+		
 		JButton Button_Confirm = new JButton("Confirm");
 		Button_Confirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +103,7 @@ public class EnterMapSize {
 				}
 			}
 		});
-		Button_Confirm.setBounds(110, 171, 93, 23);
+		Button_Confirm.setBounds(238, 171, 93, 23);
 		frame.getContentPane().add(Button_Confirm);
 	}
 

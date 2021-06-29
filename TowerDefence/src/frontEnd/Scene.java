@@ -14,14 +14,22 @@ public class Scene extends JPanel implements Runnable{
 	
 	private int worldWidth, worldHeight;
 	public static int Width, Height;
+	public static Point mse = new Point(0, 0);
+	
 	public static Image[] tile_grass = new Image[100]; 
+	public static Image[] tile_road = new Image[100];
+	
 	private static Boolean isFirst = true;
 	private static Room room;
+	private static Menu menu;
 	
-	public Scene(int x, int y) {
+	public Scene(GUI frame, int x, int y) {
 		
 		worldWidth = x;
 		worldHeight = y;
+		
+		frame.addMouseListener(new MseListener());
+		frame.addMouseMotionListener(new MseListener());
 		
 		thread.start();
 		
@@ -49,9 +57,14 @@ public class Scene extends JPanel implements Runnable{
 	
 	public void define() {
 		room = new Room(worldWidth, worldHeight);
+		menu = new Menu();
 		
 		for(int i = 0; i < tile_grass.length; i++) {
 			tile_grass[i] = new ImageIcon("resource/grass.jpg").getImage();
+		}
+		
+		for(int i = 0; i < tile_road.length; i++) {
+			tile_road[i] = new ImageIcon("resource/road.jpg").getImage();
 		}
 	}
 	
@@ -67,6 +80,7 @@ public class Scene extends JPanel implements Runnable{
 		g.clearRect(0, 0, Width, Height);
 		
 		room.draw(g);
+		menu.draw(g);
 	}
 	
 		
