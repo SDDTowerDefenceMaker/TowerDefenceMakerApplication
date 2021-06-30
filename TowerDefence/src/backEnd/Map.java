@@ -18,5 +18,9 @@ public class Map {
 		return false;
 	}
 	
+	public Tile[][] getMap(){
+		return null;
+	}
+	
 	
 }
