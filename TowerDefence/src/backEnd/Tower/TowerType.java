@@ -1,11 +1,8 @@
-package backEnd;
-import java.lang.Math;
+package backEnd.Tower;
 
-public class SingleTargetTower implements Tower {
+import backEnd.Range;
 
-    public SingleTargetTower(String tn) {
-        towerName = tn;
-    }
+public class TowerType {
 
     // Attributes
     private Range attackRange;
@@ -119,8 +116,6 @@ public class SingleTargetTower implements Tower {
     @Override
     public void setTowerName(String n) {
         towerName = n;
-    }
+    }s
     
-
 }
-
