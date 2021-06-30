@@ -9,4 +9,10 @@ public class Tile {
 		object=o;
 		objectType=t;
 	}
+	public String getType() {
+		return objectType;
+	}
+	public Object getObject() {
+		return object;
+	}
 }
