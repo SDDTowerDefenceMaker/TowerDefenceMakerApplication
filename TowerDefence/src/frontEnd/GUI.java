@@ -16,9 +16,6 @@ public class GUI extends JFrame{
     	setSize(new Dimension(width, height));
     	setLocationRelativeTo(null);
     	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	//Container container = this.getContentPane();
-    	//Scene homepage = new Scene();
-    	//container.add(homepage.getPanel());
     	init(x, y);
     	
     }

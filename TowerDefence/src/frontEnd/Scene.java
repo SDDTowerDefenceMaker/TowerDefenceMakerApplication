@@ -20,8 +20,9 @@ public class Scene extends JPanel implements Runnable{
 	public static Image[] tile_road = new Image[100];
 	
 	private static Boolean isFirst = true;
-	private static Room room;
-	private static Menu menu;
+	public static Room room;
+	public static SL sl;
+	public static Menu menu;
 	
 	public Scene(GUI frame, int x, int y) {
 		
@@ -33,30 +34,21 @@ public class Scene extends JPanel implements Runnable{
 		
 		thread.start();
 		
-		/*panel = new JPanel();
-		panel.setLayout(null);
-		JButton startButton = new JButton("Start");
-		startButton.setBounds(650, 350, 300, 100); //Let the start button locate at the middle of the screen
-    	panel.setBackground(Color.black);
-        panel.add(startButton);
-        startButton.addActionListener(new ActionListener(){
-      		public void actionPerformed(ActionEvent e) {
-      			mainGame();
-      		}
-      	});
 	}
 	
-	public void mainGame() {
-		mg = new JPanel();
-	}
-	
-	public JPanel getPanel() {
-		return panel;
-	}*/
+	public Scene(Load frame, int x, int y) {
+		worldWidth = x;
+		worldHeight = y;
+		
+		frame.addMouseListener(new MseListener());
+		frame.addMouseMotionListener(new MseListener());
+		
+		thread.start();
 	}
 	
 	public void define() {
 		room = new Room(worldWidth, worldHeight);
+		sl = new SL();
 		menu = new Menu();
 		
 		for(int i = 0; i < tile_grass.length; i++) {

@@ -63,6 +63,9 @@ public class ModeSelectionPage {
 		JButton Button_Load = new JButton("Load Game");
 		Button_Load.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Load loadgame = new Load();
+				loadgame.frame.setVisible(true);
 			}
 		});
 		Button_Load.setBounds(164, 120, 93, 23);
