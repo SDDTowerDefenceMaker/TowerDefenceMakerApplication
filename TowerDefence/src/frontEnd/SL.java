@@ -32,9 +32,9 @@ public class SL {
 				data = line.split(" ");
 				if(data[2].equals("material")) {
 					if(data[3].equals("white")){
-						Scene.room.tile[Integer.parseInt(data[0])][Integer.parseInt(data[1])].grass = 0;
+						Scene.room.block[Integer.parseInt(data[0])][Integer.parseInt(data[1])].grass = 0;
 					}else if(data[3].equals("red")) {
-						Scene.room.tile[Integer.parseInt(data[0])][Integer.parseInt(data[1])].road = 1;
+						Scene.room.block[Integer.parseInt(data[0])][Integer.parseInt(data[1])].road = 1;
 					}
 				}
 			}

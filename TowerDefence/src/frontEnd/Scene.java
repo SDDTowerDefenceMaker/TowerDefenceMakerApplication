@@ -7,6 +7,8 @@ import java.awt.image.*;
 
 import javax.swing.*;
 
+import backEnd.*;
+
 public class Scene extends JPanel implements Runnable{
 
 	private JPanel panel, mg;
@@ -21,6 +23,8 @@ public class Scene extends JPanel implements Runnable{
 	
 	private static Boolean isFirst = true;
 	public static Room room;
+	public static Map map;
+	Tile[][] tiles;
 	public static SL sl;
 	public static Menu menu;
 	
@@ -47,7 +51,9 @@ public class Scene extends JPanel implements Runnable{
 	}
 	
 	public void define() {
-		room = new Room(worldWidth, worldHeight);
+		map = new Map(worldWidth, worldHeight);
+		tiles = map.getMap();
+		room = new Room(tiles);
 		sl = new SL();
 		menu = new Menu();
 		

@@ -30,7 +30,7 @@ public class Map {
 	}
 	
 	public Tile[][] getMap(){
-		return null;
+		return Tiles;
 	}
 	
 	public boolean export(String fName) {
