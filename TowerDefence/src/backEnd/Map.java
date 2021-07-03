@@ -32,7 +32,11 @@ public class Map {
 		return false;
 	}
 	
-	public boolean changetile() {
+	public boolean changetile(int x, int y, Tile t) {
+		if(t==null) {
+			return false;
+		}
+		Tiles[x][y] = t;
 		return true;
 	}
 	
