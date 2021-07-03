@@ -18,15 +18,22 @@ public class Map {
 		this.y = y;
 		for (int i = 0; i < x; i++) {
 			for (int j = 0; j < y; j++) {
-				Tiles[i][j]=new Tile(MaterialFactory.getMaterial("white"),"material");//material, towerbase, monstercave
+				Tiles[i][j]=new Tile(MaterialFactory.getMaterial("resource/grass.jpg"),"material");//material, towerbase, monstercave
 			}
 		}
+	}
+	public Map(String fName) {
+		importing(fName);
 	}
 	public boolean addTowerBase(String type, Coordinate c) {
 		return false; 
 	}
 	public boolean defineMonsterCave(int waveNumber, MonsterType mType, int monstersNumber) {
 		return false;
+	}
+	
+	public boolean changetile() {
+		return true;
 	}
 	
 	public Tile[][] getMap(){
@@ -43,6 +50,8 @@ public class Map {
 			return false;
 		}
 	    PrintWriter printWriter = new PrintWriter(fileWriter);
+	    printWriter.printf("%d %d\n", x, y);
+	    
 	    for (int i = 0; i < x; i++) {
 			for (int j = 0; j < y; j++) {
 				printWriter.printf("%d %d ", i, j);
@@ -63,6 +72,10 @@ public class Map {
 	    } catch (FileNotFoundException e) {
 	        e.printStackTrace();  
 	    }
+	    Scanner s = new Scanner(sc2.nextLine());
+	    x = Integer.parseInt(s.next());
+	    y = Integer.parseInt(s.next());
+	    Tiles = new Tile[x][y];
 	    while (sc2.hasNextLine()) {
 	            Scanner s2 = new Scanner(sc2.nextLine());
 	        
