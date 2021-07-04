@@ -31,7 +31,7 @@ public class GUI extends JFrame{
     	
     }
     
-	/*public static void main(String[] agrs){
+	/*public static void main(String[] args){
 		GUI new_game = new GUI(24, 13);
 		
 	}	

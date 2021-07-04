@@ -1,6 +1,6 @@
 0 0 material white
 0 1 material white
-0 2 material red
+0 2 material white
 0 3 material white
 0 4 material white
 1 0 material white
