@@ -36,6 +36,7 @@ public class Map {
 		if(t==null) {
 			return false;
 		}
+		t.changeCoordinate(x, y);
 		Tiles[x][y] = t;
 		return true;
 	}
