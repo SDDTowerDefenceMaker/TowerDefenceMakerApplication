@@ -50,6 +50,22 @@ public class Scene extends JPanel implements Runnable{
 		thread.start();
 	}
 	
+	public void define(Map inputMap) {
+		map = inputMap;
+		tiles = map.getMap();
+		room = new Room(tiles);
+		sl = new SL();
+		menu = new Menu();
+		
+		for(int i = 0; i < tile_grass.length; i++) {
+			tile_grass[i] = new ImageIcon("resource/grass.jpg").getImage();
+		}
+		
+		for(int i = 0; i < tile_road.length; i++) {
+			tile_road[i] = new ImageIcon("resource/road.jpg").getImage();
+		}
+	}
+	
 	public void define() {
 		map = new Map(worldWidth, worldHeight);
 		tiles = map.getMap();

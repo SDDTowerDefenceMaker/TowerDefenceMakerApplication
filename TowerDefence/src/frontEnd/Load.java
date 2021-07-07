@@ -4,6 +4,8 @@ import java.awt.*;
 import java.io.*;
 import javax.swing.*;
 
+import backEnd.Map;
+
 
 public class Load extends JFrame{
 	
@@ -23,12 +25,11 @@ public class Load extends JFrame{
 	
 	public void init(String filename) {
 		setLayout(new GridLayout(1,1,0,0));
+		Map map = new Map(filename);
 		file = new File(filename);
-		load = new SL();
-		load.loadSize(file);
-    	Scene screen = new Scene(this, load.worldWidth, load.worldHeight);
+    	Scene screen = new Scene(this, map.getMaxX(), map.getMaxY());
+    	screen.define(map);
     	add(screen);
-    	load.loadGame(file);
 		setVisible(true);
 	}
 	
