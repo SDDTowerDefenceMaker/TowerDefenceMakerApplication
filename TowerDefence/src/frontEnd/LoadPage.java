@@ -82,6 +82,9 @@ public class LoadPage {
 					ErrorMessage.setBounds(110, 10, 243, 15);
 					frame.getContentPane().add(ErrorMessage);
 				}
+				else {
+					frame.dispose();
+				}
 			}
 		});
 		continueButton.setBounds(168, 146, 93, 23);
