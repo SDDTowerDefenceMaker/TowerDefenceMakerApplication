@@ -64,7 +64,7 @@ public class ModeSelectionPage {
 		Button_Load.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				Load loadgame = new Load();
+				LoadPage loadgame = new LoadPage();
 				loadgame.frame.setVisible(true);
 			}
 		});

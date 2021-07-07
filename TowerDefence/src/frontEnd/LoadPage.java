@@ -13,7 +13,7 @@ import java.awt.Color;
 
 public class LoadPage {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField filename;
 	private JLabel ErrorMessage;
 
@@ -61,16 +61,19 @@ public class LoadPage {
 		JButton continueButton = new JButton("Continue");
 		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				String UserFilename = filename.getText();
 				boolean fileFound = false;
 				File f = new File(UserFilename);
 				if (f.exists() && f.isFile()) {
 					Load map = new Load(UserFilename);
+					map.frame.setVisible(true);
 					fileFound = true;
 				}
 				f = new File(UserFilename+".txt");
 				if (f.exists() && f.isFile()) {
 					Load map = new Load(UserFilename+".txt");
+					map.frame.setVisible(true);
 					fileFound = true;
 				}
 				if (!fileFound) {
