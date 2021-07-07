@@ -27,7 +27,6 @@ public class Scene extends JPanel implements Runnable{
 	public static Room room;
 	public static Map map;
 	Tile[][] tiles;
-	public static SL sl;
 	public static Menu menu;
 	
 	public Scene(GUI frame, int x, int y) {
