@@ -9,8 +9,8 @@ public class CoordinatesFactoryTest {
 
 	@Test
 	public void test() {
-		assertTrue(CoordinatesFacotry.getCoordinate(0, 0).equals(CoordinatesFacotry.getCoordinate(0, 0)));
-		assertFalse(CoordinatesFacotry.getCoordinate(0, 0).equals(CoordinatesFacotry.getCoordinate(1, 0)));
+		assertTrue(CoordinatesFactory.getCoordinate(0, 0).equals(CoordinatesFactory.getCoordinate(0, 0)));
+		assertFalse(CoordinatesFactory.getCoordinate(0, 0).equals(CoordinatesFactory.getCoordinate(1, 0)));
 	}
 
 }

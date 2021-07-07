@@ -6,6 +6,7 @@ public class Tile {
 	String objectType;
 	//material (name+color)
 	public Tile(Object o, String t) {
+		locationCoordinate = CoordinatesFacotry().getCoordinate(0, 0);
 		object=o;
 		objectType=t;
 	}
