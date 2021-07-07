@@ -66,14 +66,16 @@ public class LoadPage {
 				boolean fileFound = false;
 				File f = new File(UserFilename);
 				if (f.exists() && f.isFile()) {
+					@SuppressWarnings("unused")
 					Load map = new Load(UserFilename);
-					map.frame.setVisible(true);
+					//map.frame.setVisible(true);
 					fileFound = true;
 				}
 				f = new File(UserFilename+".txt");
 				if (f.exists() && f.isFile()) {
+					@SuppressWarnings("unused")
 					Load map = new Load(UserFilename+".txt");
-					map.frame.setVisible(true);
+					//map.frame.setVisible(true);
 					fileFound = true;
 				}
 				if (!fileFound) {
