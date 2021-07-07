@@ -13,7 +13,7 @@ import java.awt.Color;
 
 public class LoadPage {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField filename;
 	private JLabel ErrorMessage;
 
