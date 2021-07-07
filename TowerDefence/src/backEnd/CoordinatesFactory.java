@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CoordinatesFacotry {
+public class CoordinatesFactory {
 	static HashMap<Coordinate, Coordinate> coordinateMap;
 	static public Coordinate getCoordinate(int x, int y) {
 		Coordinate coordinate = new Coordinate(x, y);

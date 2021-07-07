@@ -16,6 +16,7 @@ public class Scene extends JPanel implements Runnable{
 	
 	private int worldWidth, worldHeight;
 	private String filename;
+	private Boolean flag = true;
 	public static int Width, Height;
 	public static Point mse = new Point(0, 0);
 	
@@ -44,6 +45,7 @@ public class Scene extends JPanel implements Runnable{
 	public Scene(Load frame, String f) {
 		
 		filename = f;
+		flag = false;
 		
 		frame.addMouseListener(new MseListener());
 		frame.addMouseMotionListener(new MseListener());
@@ -53,9 +55,9 @@ public class Scene extends JPanel implements Runnable{
 	
 	
 	public void define() {
-		try {
+		if(flag) {
 			map = new Map(worldWidth, worldHeight);
-		}catch(Exception e) {
+		}else{
 			map = new Map(filename);
 		}
 		

@@ -1,5 +1,10 @@
 package frontEnd;
+
 import javax.swing.*;
+
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,9 +36,12 @@ public class GUI extends JFrame{
     	
     }
     
-	/*public static void main(String[] args){
-		GUI new_game = new GUI(24, 13);
-		
-	}	
-	*/
+
+//	public static void main(String[] args){
+//		new LwjglApplication(new GUI(24,13), "Castle Rush", 480*2, 320*2);
+//		//GUI new_game = new GUI(24, 13);
+//		
+//	}	
+	
+
 }

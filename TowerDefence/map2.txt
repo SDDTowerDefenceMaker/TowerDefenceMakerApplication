@@ -1,4 +1,4 @@
-10 10
+9 10
 0 0 material resource/grass.jpg
 0 1 material resource/grass.jpg
 0 2 material resource/grass.jpg
@@ -89,13 +89,3 @@
 8 7 material resource/grass.jpg
 8 8 material resource/grass.jpg
 8 9 material resource/grass.jpg
-9 0 material resource/grass.jpg
-9 1 material resource/grass.jpg
-9 2 material resource/grass.jpg
-9 3 material resource/grass.jpg
-9 4 material resource/grass.jpg
-9 5 material resource/grass.jpg
-9 6 material resource/grass.jpg
-9 7 material resource/grass.jpg
-9 8 material resource/grass.jpg
-9 9 material resource/grass.jpg

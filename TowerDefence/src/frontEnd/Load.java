@@ -4,6 +4,8 @@ import java.awt.*;
 import java.io.*;
 import javax.swing.*;
 
+import backEnd.Map;
+
 
 public class Load extends JFrame{
 	
@@ -13,7 +15,22 @@ public class Load extends JFrame{
 	public File file;
 	static JFrame frame;
 	
-	public Load() {
+	public Load(String filename) {
+		setTitle("Tower Defence Maker");
+    	setSize(new Dimension(width, height));
+    	setLocationRelativeTo(null);
+    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	init(filename);
+	}
+	
+	public void init(String filename) {
+		setLayout(new GridLayout(1,1,0,0));
+    	Scene screen = new Scene(this, filename);
+    	add(screen);
+		setVisible(true);
+	}
+	
+	/*public Load() {
 		setTitle("Tower Defence Maker");
     	setSize(new Dimension(width, height));
     	setLocationRelativeTo(null);
@@ -29,7 +46,7 @@ public class Load extends JFrame{
     	add(screen);
     	
 		setVisible(true);
-	}
+	}*/
 	
 	
 }

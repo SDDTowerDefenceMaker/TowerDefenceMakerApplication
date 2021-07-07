@@ -36,12 +36,21 @@ public class Map {
 		if(t==null) {
 			return false;
 		}
+		t.changeCoordinate(x, y);
 		Tiles[x][y] = t;
 		return true;
 	}
 	
 	public Tile[][] getMap(){
 		return Tiles;
+	}
+	
+	public int getMaxX() {
+		return x;
+	}
+	
+	public int getMaxY() {
+		return y;
 	}
 	
 	public boolean export(String fName) {
