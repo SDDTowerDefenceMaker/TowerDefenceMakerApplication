@@ -45,6 +45,14 @@ public class Map {
 		return Tiles;
 	}
 	
+	public int getMaxX() {
+		return x;
+	}
+	
+	public int getMaxY() {
+		return y;
+	}
+	
 	public boolean export(String fName) {
 		FileWriter fileWriter;
 		try {
