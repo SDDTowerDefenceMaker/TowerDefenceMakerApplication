@@ -9,9 +9,9 @@ public class Load extends JFrame{
 	
 	public static int width = 1600;
 	public static int height = 900;
+	private int worldWidth, worldHeight;
 	public File file;
 	static JFrame frame;
-	public SL load;
 	
 	public Load() {
 		setTitle("Tower Defence Maker");
@@ -23,13 +23,13 @@ public class Load extends JFrame{
 	
 	public void init() {
 		setLayout(new GridLayout(1,1,0,0));
-		file = new File("data/map.txt");
-		load = new SL();
-		load.loadSize(file);
-    	Scene screen = new Scene(this, load.worldWidth, load.worldHeight);
+		
+		String filename = "map.txt";
+    	Scene screen = new Scene(this, filename);
     	add(screen);
-    	load.loadGame(file);
+    	
 		setVisible(true);
 	}
+	
 	
 }

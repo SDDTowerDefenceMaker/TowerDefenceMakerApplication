@@ -15,6 +15,7 @@ public class Scene extends JPanel implements Runnable{
 	private Thread thread = new Thread(this);
 	
 	private int worldWidth, worldHeight;
+	private String filename;
 	public static int Width, Height;
 	public static Point mse = new Point(0, 0);
 	
@@ -40,9 +41,9 @@ public class Scene extends JPanel implements Runnable{
 		
 	}
 	
-	public Scene(Load frame, int x, int y) {
-		worldWidth = x;
-		worldHeight = y;
+	public Scene(Load frame, String f) {
+		
+		filename = f;
 		
 		frame.addMouseListener(new MseListener());
 		frame.addMouseMotionListener(new MseListener());
@@ -50,11 +51,16 @@ public class Scene extends JPanel implements Runnable{
 		thread.start();
 	}
 	
+	
 	public void define() {
-		map = new Map(worldWidth, worldHeight);
+		try {
+			map = new Map(worldWidth, worldHeight);
+		}catch(Exception e) {
+			map = new Map(filename);
+		}
+		
 		tiles = map.getMap();
 		room = new Room(tiles);
-		sl = new SL();
 		menu = new Menu();
 		
 		for(int i = 0; i < tile_grass.length; i++) {

@@ -1,47 +1,75 @@
 package frontEnd;
 
+import java.awt.*;
 import java.io.*;
 import java.util.*;
 
-public class SL {
-	public int worldWidth, worldHeight;
+import javax.swing.*;
+
+import backEnd.Map;
+import backEnd.Tile;
+
+public class SL extends JPanel implements Runnable{
+	public static int Width, Height;
+	public Tile[][] tile;
+	public static Room room;
+	public String filename;
+	public Menu menu;
+	private Thread thread = new Thread(this);
 	
-	public void loadSize(File f) {
-		try {
-			String [] data = null;
-			BufferedReader in = new BufferedReader(new FileReader(f));
-			String line;
-			while((line = in.readLine()) != null) {
-				data = line.split(" ");
-			}
-			worldWidth = Integer.parseInt(data[0]);
-			worldHeight = Integer.parseInt(data[1]);
-			in.close();
-		}catch(IOException e) {
-			
-		}
+	private static Boolean isFirst = true;
+	
+
+	public SL(Load frame, String f) {
+		filename = f;
 		
+		frame.addMouseListener(new MseListener());
+		frame.addMouseMotionListener(new MseListener());
+		
+		thread.start();
 	}
 	
-	public void loadGame(File f) {
-		try {
-			String [] data;
-			BufferedReader in = new BufferedReader(new FileReader(f));
-			String line;
-			while((line = in.readLine()) != null) {
-				data = line.split(" ");
-				if(data[2].equals("material")) {
-					if(data[3].equals("white")){
-						Scene.room.block[Integer.parseInt(data[0])][Integer.parseInt(data[1])].grass = 0;
-					}else if(data[3].equals("red")) {
-						Scene.room.block[Integer.parseInt(data[0])][Integer.parseInt(data[1])].road = 1;
-					}
-				}
-			}
-		}catch(IOException e) {
+	
+	public void loadGame(String f) {
+	}
+	
+	public void define() {
+		Map map = new Map(filename);
+		tile = map.getMap();
+		room = new Room(tile);
+		menu = new Menu();
+	}
+	
+	public void paintComponent( Graphics g ) {
+		if(isFirst) {
+			Width = getWidth();
+			Height = getHeight();
+			define();
 			
+			isFirst = false;
 		}
 		
+		g.clearRect(0, 0, Width, Height);
+		
+		room.draw(g);
+		menu.draw(g);
+	}
+	
+		
+	public static int fpsFrame = 0, fps = 1000000;
+		
+	public void run() {
+		while(true) {
+				if(!isFirst) {
+					
+				}
+				repaint();
+				
+				try { 
+					Thread.sleep(1);
+				}catch(Exception e) {
+			}
+		}
 	}
 			
 	
