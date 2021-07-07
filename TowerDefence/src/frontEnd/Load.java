@@ -25,8 +25,10 @@ public class Load extends JFrame{
 	
 	public void init(String filename) {
 		setLayout(new GridLayout(1,1,0,0));
+		
     	Scene screen = new Scene(this, filename);
     	add(screen);
+    	
 		setVisible(true);
 	}
 	
