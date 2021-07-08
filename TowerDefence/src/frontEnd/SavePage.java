@@ -1,22 +1,20 @@
 package frontEnd;
 
-import java.io.File;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
+import javax.swing.JTextField;
 
-public class LoadPage {
+public class SavePage {
 
 	JFrame frame;
-	private JTextField filename;
-	private JLabel ErrorMessage;
 
 	/**
 	 * Launch the application.
@@ -25,7 +23,7 @@ public class LoadPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoadPage window = new LoadPage();
+					SavePage window = new SavePage();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +35,7 @@ public class LoadPage {
 	/**
 	 * Create the application.
 	 */
-	public LoadPage() {
+	public SavePage() {
 		initialize();
 	}
 
@@ -50,7 +48,7 @@ public class LoadPage {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		filename = new JTextField();
+		JTextField filename = new JTextField();
 		filename.setBounds(126, 115, 174, 21);
 		frame.getContentPane().add(filename);
 		filename.setColumns(10);
@@ -62,33 +60,30 @@ public class LoadPage {
 		JButton continueButton = new JButton("Continue");
 		continueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				String UserFilename = filename.getText();
-				boolean fileFound = false;
-				File f = new File(UserFilename);
-				if (f.exists() && f.isFile()) {
-					@SuppressWarnings("unused")
-					Load map = new Load(UserFilename);
-					//map.frame.setVisible(true);
-					fileFound = true;
+				// File (or directory) with old name
+				File file = new File("save_temp.txt");
+
+				// File (or directory) with new name
+				File file2 = new File(UserFilename+".txt");
+
+				if (file2.exists()) {
+					file2.delete();
 				}
-				f = new File(UserFilename+".txt");
-				if (f.exists() && f.isFile()) {
-					@SuppressWarnings("unused")
-					Load map = new Load(UserFilename+".txt");
-					//map.frame.setVisible(true);
-					fileFound = true;
+				boolean success = file.renameTo(file2);
+				if (!success) {
+					JOptionPane.showMessageDialog(frame, "ERROR: File not successfully saved!");
 				}
-				if (!fileFound) {
-					JOptionPane.showMessageDialog(frame, "ERROR: Please enter a valid file name!");
-				}
-				else {
-					frame.dispose();
-				}
+
+				
+
+				
+				
 			}
 		});
 		continueButton.setBounds(168, 146, 93, 23);
 		frame.getContentPane().add(continueButton);
-		
-		
 	}
+
 }

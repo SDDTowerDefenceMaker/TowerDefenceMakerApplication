@@ -64,8 +64,16 @@ public class ModeSelectionPage {
 		Button_Load.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				LoadPage loadgame = new LoadPage();
-				loadgame.frame.setVisible(true);
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							LoadPage window = new LoadPage();
+							window.frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 			}
 		});
 		Button_Load.setBounds(164, 120, 93, 23);

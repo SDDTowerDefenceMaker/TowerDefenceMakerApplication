@@ -3,7 +3,10 @@ package frontEnd;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.*;
+import java.io.File;
 
 import javax.swing.*;
 
@@ -13,6 +16,7 @@ public class Scene extends JPanel implements Runnable{
 
 	private JPanel panel, mg;
 	private Thread thread = new Thread(this);
+	private JFrame frame;
 	
 	private int worldWidth, worldHeight;
 	private String filename;
@@ -30,7 +34,7 @@ public class Scene extends JPanel implements Runnable{
 	public static Menu menu;
 	
 	public Scene(GUI frame, int x, int y) {
-		
+		this.frame = frame;
 		worldWidth = x;
 		worldHeight = y;
 		
@@ -42,7 +46,7 @@ public class Scene extends JPanel implements Runnable{
 	}
 	
 	public Scene(Load frame, String f) {
-		
+		this.frame = frame;
 		filename = f;
 		flag = false;
 		
@@ -80,12 +84,34 @@ public class Scene extends JPanel implements Runnable{
 			define();
 			
 			isFirst = false;
+//			@SuppressWarnings("unused")
+//			Mouse mouse = new Mouse(this);
+			/*addMouseListener(new MouseListener() {
+				  public void mousePressed(MouseEvent e) {
+				  }
+
+				  public void mouseReleased(MouseEvent e) {
+				    save();
+				  }
+
+				  public void mouseClicked(MouseEvent e) {
+				  }
+
+				  public void mouseEntered(MouseEvent e) {
+				  }
+
+				  public void mouseExited(MouseEvent e) {
+				  }
+				});*/
 		}
+
 		
+		//save();
 		g.clearRect(0, 0, Width, Height);
 		
-		room.draw(g);
-		menu.draw(g);
+		
+		room.draw(g, map);
+		menu.draw(g, map);
 	}
 	
 		
@@ -98,10 +124,25 @@ public class Scene extends JPanel implements Runnable{
 				}
 				repaint();
 				
+				
 				try { 
 					Thread.sleep(1);
 				}catch(Exception e) {
 			}
 		}
+	}
+	
+	public void save() {
+		map.export("save_temp.txt");
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SavePage window = new SavePage();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }

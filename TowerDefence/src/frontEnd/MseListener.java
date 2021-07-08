@@ -19,13 +19,13 @@ public class MseListener implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		Scene.menu.click(e.getButton());
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		Scene.menu.click(e.getButton());
 		
 	}
 
