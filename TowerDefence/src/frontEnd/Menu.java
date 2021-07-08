@@ -2,16 +2,23 @@ package frontEnd;
 
 import java.awt.*;
 import backEnd.Map;
+import backEnd.Material;
+import backEnd.Tile;
 
 public class Menu {
 	private static int itemNum = 8;
 	private static int itemSize = 64;
+	private int worldWidth = Scene.room.worldWidth;
+	private int worldHeight = Scene.room.worldHeight;
+	private int tileSize = Scene.room.tileSize;
+	private int currentX, currentY;
 	
 	public static int hold = -1;
 	
 	public Rectangle[] items = new Rectangle[itemNum];
+	public Tile[] itemList = {new Tile(new Material("material"), "resource/grass.jpg"), new Tile(new Material("material"), "resource/road.jpg")};
 	
-	public boolean flag = false;
+	public int flag = -1;
 	
 	public Menu() {
 		define();
@@ -29,7 +36,24 @@ public class Menu {
 			for(int i = 0; i< itemNum; i++) {
 				if(items[i].contains(Scene.mse)) {
 					hold = i;
-					flag = true;
+					flag = 1;
+				}
+			}
+			if(hold != -1) {
+				for(int i = 0; i < Scene.room.block.length; i++) {
+					for(int j = 0; j < Scene.room.block[0].length; j++) {
+						if(Scene.room.block[i][j].contains(Scene.mse)) {
+							Material tmp = (Material)(itemList[hold].getObject());
+							if(!Scene.room.block[i][j].material.getTexture().equals(tmp.getTexture())){
+								Scene.map.changetile(i, j, itemList[hold]);
+								Scene.room = new Room(Scene.map.getMap());
+								currentX = i;
+								currentY = j;
+								flag = 0;
+								//Scene.room.block[i][j] = new Block((Scene.Width/2 - (worldWidth*tileSize)/2) + j * tileSize, (Scene.Height/2 - (worldHeight*tileSize)/2) +  i * tileSize, tileSize, tileSize, itemList[hold].getType(), itemList[hold].getObject());
+							}
+						}
+					}
 				}
 			}
 		}
@@ -47,11 +71,15 @@ public class Menu {
 			}
 			
 		}
-		g.drawImage(Scene.tile_grass[0], items[0].x, items[0].y, items[0].width, items[0].height, null); //First item -- grass
-		g.drawImage(Scene.tile_road[0], items[1].x, items[1].y, items[1].width, items[1].height, null); //Second item -- road
-		if(flag) {
-			if(hold == 0) g.drawImage(Scene.tile_grass[0], Scene.mse.x - items[0].width/2, Scene.mse.y - items[0].height/2, items[0].width, items[0].height, null);
-			if(hold == 1) g.drawImage(Scene.tile_road[0], Scene.mse.x - items[1].width/2, Scene.mse.y - items[1].height/2, items[1].width, items[1].height, null);
+		g.drawImage(Scene.tile_grass, items[0].x, items[0].y, items[0].width, items[0].height, null); //First item -- grass
+		g.drawImage(Scene.tile_road, items[1].x, items[1].y, items[1].width, items[1].height, null); //Second item -- road
+		if(flag == 1) {
+			if(hold == 0) g.drawImage(Scene.tile_grass, Scene.mse.x - items[0].width/2, Scene.mse.y - items[0].height/2, items[0].width, items[0].height, null);
+			if(hold == 1) g.drawImage(Scene.tile_road, Scene.mse.x - items[1].width/2, Scene.mse.y - items[1].height/2, items[1].width, items[1].height, null);
 		}
+		/*if(flag == 0) {
+			Scene.room.block[currentX][currentY].draw(g);
+			flag = -1;
+		}*/
 	}
 }

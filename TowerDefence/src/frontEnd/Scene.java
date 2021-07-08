@@ -24,8 +24,8 @@ public class Scene extends JPanel implements Runnable{
 	public static int Width, Height;
 	public static Point mse = new Point(0, 0);
 	
-	public static Image[] tile_grass = new Image[100]; 
-	public static Image[] tile_road = new Image[100];
+	public static Image tile_grass; 
+	public static Image tile_road;
 	
 	private static Boolean isFirst = true;
 	public static Room room;
@@ -68,13 +68,9 @@ public class Scene extends JPanel implements Runnable{
 		room = new Room(tiles);
 		menu = new Menu();
 		
-		for(int i = 0; i < tile_grass.length; i++) {
-			tile_grass[i] = new ImageIcon("resource/grass.jpg").getImage();
-		}
+		tile_grass = new ImageIcon("resource/grass.jpg").getImage();
 		
-		for(int i = 0; i < tile_road.length; i++) {
-			tile_road[i] = new ImageIcon("resource/road.jpg").getImage();
-		}
+		tile_road = new ImageIcon("resource/road.jpg").getImage();
 	}
 	
 	public void paintComponent( Graphics g ) {
