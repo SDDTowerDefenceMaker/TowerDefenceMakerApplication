@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 public class SavePage {
 
-	private JFrame frame;
+	JFrame frame;
 
 	/**
 	 * Launch the application.

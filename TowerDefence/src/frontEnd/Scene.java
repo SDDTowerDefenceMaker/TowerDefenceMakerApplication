@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.*;
 import java.io.File;
 
@@ -83,8 +84,29 @@ public class Scene extends JPanel implements Runnable{
 			define();
 			
 			isFirst = false;
+//			@SuppressWarnings("unused")
+//			Mouse mouse = new Mouse(this);
+			addMouseListener(new MouseListener() {
+				  public void mousePressed(MouseEvent e) {
+				  }
+
+				  public void mouseReleased(MouseEvent e) {
+				    save();
+				  }
+
+				  public void mouseClicked(MouseEvent e) {
+				  }
+
+				  public void mouseEntered(MouseEvent e) {
+				  }
+
+				  public void mouseExited(MouseEvent e) {
+				  }
+				});
 		}
+
 		
+		//save();
 		g.clearRect(0, 0, Width, Height);
 		
 		
@@ -101,8 +123,7 @@ public class Scene extends JPanel implements Runnable{
 					
 				}
 				repaint();
-				@SuppressWarnings("unused")
-				Mouse mouse = new Mouse(map);
+				
 				
 				try { 
 					Thread.sleep(1);
@@ -112,6 +133,16 @@ public class Scene extends JPanel implements Runnable{
 	}
 	
 	public void save() {
-		
+		map.export("save_temp.txt");
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SavePage window = new SavePage();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }
