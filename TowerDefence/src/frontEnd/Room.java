@@ -1,5 +1,6 @@
 package frontEnd;
 import java.awt.*;
+import backEnd.Map;
 
 import backEnd.Tile;
 
@@ -18,7 +19,7 @@ public class Room {
 		define();
 	}
 	
-	public void draw(Graphics g) {
+	public void draw(Graphics g,Map map) {
 		for(int i = 0; i < block.length; i++) {
 			for(int j = 0; j < block[0].length; j++) {
 				block[i][j].draw(g);

@@ -2,6 +2,8 @@ package frontEnd;
 
 import java.awt.*;
 
+import javax.swing.ImageIcon;
+
 import backEnd.Material;
 
 public class Block extends Rectangle{
@@ -16,11 +18,8 @@ public class Block extends Rectangle{
 	
 	public void draw(Graphics g) {
 		if(type.equals("material")) {
-			if(material.getTexture().equals("resource/grass.jpg")) {
-				g.drawImage(Scene.tile_grass[0],x,y,width,height,null);
-			}else if(material.getTexture().equals("resource/road.jpg")) {
-				g.drawImage(Scene.tile_road[0],x,y,width,height,null);
-			}
+			Image d = new ImageIcon(material.getTexture()).getImage();
+			g.drawImage(d,x,y,width,height,null);
 		}
 		
 	}

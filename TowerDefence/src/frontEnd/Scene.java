@@ -110,8 +110,8 @@ public class Scene extends JPanel implements Runnable{
 		g.clearRect(0, 0, Width, Height);
 		
 		
-		room.draw(g);
-		menu.draw(g);
+		room.draw(g,map);
+		menu.draw(g,map);
 	}
 	
 		

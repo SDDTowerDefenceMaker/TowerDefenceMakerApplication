@@ -1,6 +1,7 @@
 package frontEnd;
 
 import java.awt.*;
+import backEnd.Map;
 
 public class Menu {
 	private static int itemNum = 8;
@@ -18,7 +19,7 @@ public class Menu {
 		}
 	}
 	
-	public void draw(Graphics g) {
+	public void draw(Graphics g,Map map) {
 		if(items[0].contains(Scene.mse)) {
 			
 		}

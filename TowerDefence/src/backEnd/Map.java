@@ -11,6 +11,7 @@ public class Map {
 	Tile[][] Tiles;
 	int x;
 	int y;
+	Material current_selected;
 	ArrayList<MonsterCave> monsterCaves;
 	public Map(int x, int y) {
 		Tiles=new Tile[x][y];
