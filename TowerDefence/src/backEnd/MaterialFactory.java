@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class MaterialFactory {
 	static HashMap<Material, Material> MaterialMap;
-	static public Material getMaterial(String t) {
-		Material material = new Material(t);
+	static public Material getMaterial(String texture) {
+		Material material = new Material(texture);
 		if (MaterialMap==null) {
 			MaterialMap=new HashMap<Material, Material>();
 			MaterialMap.put(material, material);
