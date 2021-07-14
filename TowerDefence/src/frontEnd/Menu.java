@@ -26,6 +26,7 @@ public class Menu {
 	
 	public void define() {
 		for(int i = 0; i < itemNum; i++) {
+			if (Room.tileSize != 96) {itemSize = Room.tileSize*2/3;}
 			items[i] = new Rectangle(Scene.Width - itemSize - 2, (itemSize + 2)*i + 2, itemSize, itemSize);
 		}
 	}
