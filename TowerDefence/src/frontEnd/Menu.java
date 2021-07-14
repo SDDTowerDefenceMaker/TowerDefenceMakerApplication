@@ -45,7 +45,7 @@ public class Menu {
 						if(Scene.room.block[i][j].contains(Scene.mse)) {
 							Material tmp = (Material)(itemList[hold].getObject());
 							//if(!Scene.room.block[i][j].material.getTexture().equals(tmp.getTexture())){
-								Scene.map.changetile(i, j, itemList[hold]);
+								Scene.map.addMaterial(i, j, itemList[hold].getType());
 								Scene.room = new Room(Scene.map.getMap());
 								currentX = i;
 								currentY = j;
