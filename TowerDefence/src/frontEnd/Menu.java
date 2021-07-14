@@ -18,7 +18,7 @@ public class Menu {
 	public Rectangle[] items = new Rectangle[itemNum];
 	public Tile[] itemList = {new Tile(new Material("material"), "resource/grass.jpg"), new Tile(new Material("material"), "resource/road.jpg")};
 	
-	public int flag = -1;
+	public int flag = 0;
 	
 	public Menu() {
 		define();
@@ -44,15 +44,10 @@ public class Menu {
 				for(int i = 0; i < Scene.room.block.length; i++) {
 					for(int j = 0; j < Scene.room.block[0].length; j++) {
 						if(Scene.room.block[i][j].contains(Scene.mse)) {
-							Material tmp = (Material)(itemList[hold].getObject());
-							//if(!Scene.room.block[i][j].material.getTexture().equals(tmp.getTexture())){
-								Scene.map.addMaterial(i, j, itemList[hold].getType());
-								Scene.room = new Room(Scene.map.getMap());
-								currentX = i;
-								currentY = j;
-								flag = 0;
-								//Scene.room.block[i][j] = new Block((Scene.Width/2 - (worldWidth*tileSize)/2) + j * tileSize, (Scene.Height/2 - (worldHeight*tileSize)/2) +  i * tileSize, tileSize, tileSize, itemList[hold].getType(), itemList[hold].getObject());
-							//}
+							Scene.map.addMaterial(i, j, itemList[hold].getType());
+							Scene.room = new Room(Scene.map.getMap());
+							flag = 0;
+							hold = -1;
 						}
 					}
 				}
@@ -78,9 +73,5 @@ public class Menu {
 			if(hold == 0) g.drawImage(Scene.tile_grass, Scene.mse.x - items[0].width/2, Scene.mse.y - items[0].height/2, items[0].width, items[0].height, null);
 			if(hold == 1) g.drawImage(Scene.tile_road, Scene.mse.x - items[1].width/2, Scene.mse.y - items[1].height/2, items[1].width, items[1].height, null);
 		}
-		/*if(flag == 0) {
-			Scene.room.block[currentX][currentY].draw(g);
-			flag = -1;
-		}*/
 	}
 }
