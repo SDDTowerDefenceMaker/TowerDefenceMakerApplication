@@ -30,6 +30,7 @@ public class Scene extends JPanel implements Runnable{
 	private static Boolean isFirst = true;
 	public static Room room;
 	public static Map map;
+	public static SaveButton saveButton;
 	Tile[][] tiles;
 	public static Menu menu;
 	
@@ -63,7 +64,7 @@ public class Scene extends JPanel implements Runnable{
 		}else{
 			map = new Map(filename);
 		}
-		
+		saveButton = new SaveButton();
 		tiles = map.getMap();
 		room = new Room(tiles);
 		menu = new Menu();
@@ -87,9 +88,12 @@ public class Scene extends JPanel implements Runnable{
 				  }
 
 				  public void mouseReleased(MouseEvent e) {
-				    save();
+					if (SwingUtilities.isRightMouseButton(e))
+				    {
+						save();
+				  
+				    }
 				  }
-
 				  public void mouseClicked(MouseEvent e) {
 				  }
 
@@ -98,6 +102,7 @@ public class Scene extends JPanel implements Runnable{
 
 				  public void mouseExited(MouseEvent e) {
 				  }
+				  
 				});*/
 		}
 
@@ -108,6 +113,7 @@ public class Scene extends JPanel implements Runnable{
 		
 		room.draw(g, map);
 		menu.draw(g, map);
+		saveButton.draw(g);
 	}
 	
 		

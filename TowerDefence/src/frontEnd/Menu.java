@@ -44,14 +44,14 @@ public class Menu {
 					for(int j = 0; j < Scene.room.block[0].length; j++) {
 						if(Scene.room.block[i][j].contains(Scene.mse)) {
 							Material tmp = (Material)(itemList[hold].getObject());
-							if(!Scene.room.block[i][j].material.getTexture().equals(tmp.getTexture())){
+							//if(!Scene.room.block[i][j].material.getTexture().equals(tmp.getTexture())){
 								Scene.map.changetile(i, j, itemList[hold]);
 								Scene.room = new Room(Scene.map.getMap());
 								currentX = i;
 								currentY = j;
 								flag = 0;
 								//Scene.room.block[i][j] = new Block((Scene.Width/2 - (worldWidth*tileSize)/2) + j * tileSize, (Scene.Height/2 - (worldHeight*tileSize)/2) +  i * tileSize, tileSize, tileSize, itemList[hold].getType(), itemList[hold].getObject());
-							}
+							//}
 						}
 					}
 				}

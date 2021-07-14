@@ -53,7 +53,7 @@ public class SavePage {
 		frame.getContentPane().add(filename);
 		filename.setColumns(10);
 		
-		JLabel Instruction = new JLabel("Enter File name below");
+		JLabel Instruction = new JLabel("(Saving) Enter File name below");
 		Instruction.setBounds(152, 90, 143, 15);
 		frame.getContentPane().add(Instruction);
 		
