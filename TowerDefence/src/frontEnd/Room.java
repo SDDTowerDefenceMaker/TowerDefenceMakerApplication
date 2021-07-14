@@ -20,6 +20,7 @@ public class Room {
 	}
 	
 	public void draw(Graphics g, Map map) {
+		tile = map.getMap();
 		for(int i = 0; i < block.length; i++) {
 			for(int j = 0; j < block[0].length; j++) {
 				block[i][j].draw(g);
