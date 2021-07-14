@@ -46,6 +46,7 @@ public class Menu {
 							Scene.map.addMaterial(i, j, itemList[hold].getType());
 							Scene.room = new Room(Scene.map.getMap());
 							flag = 0;
+							hold = -1;
 						}
 					}
 				}
