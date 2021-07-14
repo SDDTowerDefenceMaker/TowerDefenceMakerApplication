@@ -20,7 +20,11 @@ public class MseListener implements MouseListener, MouseMotionListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (MouseInfo.getPointerInfo().getLocation().getX() > Scene.Width - 50) {
+			if (MouseInfo.getPointerInfo().getLocation().getY() > Scene.Height - 50) {
+				Scene.save();
+			}
+		}
 	}
 
 	@Override

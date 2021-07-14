@@ -134,7 +134,7 @@ public class Scene extends JPanel implements Runnable{
 		}
 	}
 	
-	public void save() {
+	public static void save() {
 		map.export("save_temp.txt");
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
