@@ -44,6 +44,7 @@ public class SavePage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Tower Defence Maker - Saving");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -53,7 +54,7 @@ public class SavePage {
 		frame.getContentPane().add(filename);
 		filename.setColumns(10);
 		
-		JLabel Instruction = new JLabel("(Saving) Enter File name below");
+		JLabel Instruction = new JLabel("Enter File name below");
 		Instruction.setBounds(152, 90, 143, 15);
 		frame.getContentPane().add(Instruction);
 		
