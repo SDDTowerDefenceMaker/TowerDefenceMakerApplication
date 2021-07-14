@@ -29,6 +29,7 @@ public class EnterMapSize {
 	
 	public void init() {
 		frame = new JFrame();
+		frame.setTitle("Tower Defence Maker - Creating");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
