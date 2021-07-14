@@ -47,6 +47,7 @@ public class LoginPage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Tower Defence Maker - Login");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -57,11 +58,11 @@ public class LoginPage {
 		UserUsername.setColumns(10);
 		
 		JLabel Lable_Username = new JLabel("Username");
-		Lable_Username.setBounds(110, 88, 54, 15);
+		Lable_Username.setBounds(110, 88, 70, 15);
 		frame.getContentPane().add(Lable_Username);
 		
 		JLabel Lable_Password = new JLabel("Password");
-		Lable_Password.setBounds(110, 126, 54, 15);
+		Lable_Password.setBounds(110, 126, 70, 15);
 		frame.getContentPane().add(Lable_Password);
 		
 		JPasswordField UserPassword = new JPasswordField();
