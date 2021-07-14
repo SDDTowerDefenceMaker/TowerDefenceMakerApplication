@@ -4,9 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import backEnd.Monster.MonsterCave;
-import backEnd.Monster.MonsterType;
-
 public class Map {
 	Tile[][] Tiles;
 	int x;
@@ -26,19 +23,17 @@ public class Map {
 	public Map(String fName) {
 		importing(fName);
 	}
-	public boolean addTowerBase(String type, Coordinate c) {
-		return false; 
-	}
-	public boolean defineMonsterCave(int waveNumber, MonsterType mType, int monstersNumber) {
-		return false;
-	}
 	
-	public boolean changetile(int x, int y, Tile t) {
-		if(t==null) {
-			return false;
-		}
-		t.changeCoordinate(x, y);
-		Tiles[x][y] = t;
+	public boolean addTowerBase(int x, int y, String texture) {
+		Tiles[x][y] = new Tile(TowerBaseFactory.getTowerBase(texture), "towerbase", x, y);
+		return true; 
+	}
+	public boolean addMonsterCave(int x, int y, String texture) {
+		Tiles[x][y] = new Tile(MonsterCaveFactory.getMonsterCave(texture), "monstercave", x, y);
+		return true; 
+	}
+	public boolean addMaterial(int x, int y, String texture) {
+		Tiles[x][y] = new Tile(MaterialFactory.getMaterial(texture), "material", x, y);
 		return true;
 	}
 	
