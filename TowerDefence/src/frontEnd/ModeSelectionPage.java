@@ -57,7 +57,7 @@ public class ModeSelectionPage {
 				MapSize.frame.setVisible(true);
 			}
 		});
-		Button_New.setBounds(164, 87, 93, 23);
+		Button_New.setBounds(154, 87, 113, 23);
 		frame.getContentPane().add(Button_New);
 		
 		JButton Button_Load = new JButton("Load Game");
@@ -76,7 +76,7 @@ public class ModeSelectionPage {
 				});
 			}
 		});
-		Button_Load.setBounds(164, 120, 93, 23);
+		Button_Load.setBounds(154, 120, 113, 23);
 		frame.getContentPane().add(Button_Load);
 		
 		JButton Button_Test = new JButton("Test Game");
@@ -84,7 +84,7 @@ public class ModeSelectionPage {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		Button_Test.setBounds(164, 153, 93, 23);
+		Button_Test.setBounds(154, 153, 113, 23);
 		frame.getContentPane().add(Button_Test);
 		
 		JButton Button_Setup = new JButton("Setup");
@@ -92,7 +92,7 @@ public class ModeSelectionPage {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		Button_Setup.setBounds(164, 186, 93, 23);
+		Button_Setup.setBounds(154, 186, 113, 23);
 		frame.getContentPane().add(Button_Setup);
 		
 		JLabel ModeSelectionTitle = new JLabel("Tower Defense Maker");
