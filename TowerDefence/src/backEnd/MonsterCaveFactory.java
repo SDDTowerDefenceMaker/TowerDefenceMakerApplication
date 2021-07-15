@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class MonsterCaveFactory {
 	static HashMap<MonsterCave, MonsterCave> MonsterCaveMap;
-	static public MonsterCave getMonsterCave(String texture) {
-		MonsterCave monsterCave = new MonsterCave(texture);
+	static public MonsterCave getMonsterCave(String texture, int x, int y) {
+		MonsterCave monsterCave = new MonsterCave(texture, x, y);
 		if (MonsterCaveMap==null) {
 			MonsterCaveMap=new HashMap<MonsterCave, MonsterCave>();
 			MonsterCaveMap.put(monsterCave, monsterCave);

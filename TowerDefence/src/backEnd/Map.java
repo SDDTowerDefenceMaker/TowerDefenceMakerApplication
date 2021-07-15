@@ -29,7 +29,7 @@ public class Map {
 		return true; 
 	}
 	public boolean addMonsterCave(int x, int y, String texture) {
-		Tiles[x][y] = new Tile(MonsterCaveFactory.getMonsterCave(texture), "monstercave", x, y);
+		Tiles[x][y] = new Tile(MonsterCaveFactory.getMonsterCave(texture, x, y), "monstercave", x, y);
 		return true; 
 	}
 	public boolean addMaterial(int x, int y, String texture) {

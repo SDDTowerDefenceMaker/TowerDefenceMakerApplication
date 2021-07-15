@@ -2,15 +2,20 @@ package backEnd;
 
 public class MonsterCave {
 	String texture;
-	public MonsterCave(String t) {
+	Path monsterPaths;
+	Coordinate coordinate;
+	public MonsterCave(String t, int x, int y) {
 		texture = t;
+		monsterPaths = new Path(x, y);
+		coordinate = CoordinatesFactory.getCoordinate(x, y);
 	}
 	public String getTexture() {
 		return texture;
 	}
 	@Override
 	public int hashCode() {
-		return texture.hashCode();
+		int tmp = ( texture.hashCode() +  ((coordinate.hashCode()+1)/2));
+        return coordinate.hashCode() +  (tmp * tmp);
 	}
 	@Override
 	public boolean equals(Object obj) {
