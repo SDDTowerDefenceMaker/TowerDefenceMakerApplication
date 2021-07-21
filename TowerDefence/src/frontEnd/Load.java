@@ -16,6 +16,19 @@ public class Load extends JFrame{
 	static JFrame frame;
 	
 	public Load(String filename) {
+		int screen_height = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getHeight();
+    	if (screen_height == 720) {
+			height = 540;
+			width = 960;
+		}
+    	if (screen_height == 900) {
+			height = 720;
+			width = 1280;
+		}
+    	if (screen_height >= 1080) {
+			height = 900;
+			width = 1600;
+		}
 		setTitle("Tower Defence Maker");
     	setSize(new Dimension(width, height));
     	setLocationRelativeTo(null);

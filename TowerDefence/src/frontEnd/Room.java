@@ -16,7 +16,7 @@ public class Room {
 		tile = t;
 		worldWidth = tile[0].length;
 		worldHeight = tile.length;
-		tileSize = 800/(Math.max(worldWidth,worldHeight));
+		tileSize = (Math.min(GUI.height, Load.height)*5/6)/(Math.max(worldWidth,worldHeight));
 		define();
 	}
 	
