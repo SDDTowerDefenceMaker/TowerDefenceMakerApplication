@@ -2,6 +2,8 @@ package frontEnd;
 
 import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
+
 import backEnd.Map;
 import backEnd.Tile;
 
@@ -15,7 +17,7 @@ public class SaveButton {
 	}
 	
 	public void draw(Graphics g) {
-		g.drawImage(Scene.tile_grass, worldWidth-50, worldHeight-50, 50, 50, null);
+		g.drawImage(new ImageIcon("resource/save.png").getImage(), worldWidth-50, worldHeight-50, 50, 50, null);
 		
 	}
 	
