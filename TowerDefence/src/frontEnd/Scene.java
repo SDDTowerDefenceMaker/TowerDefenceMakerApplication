@@ -15,8 +15,8 @@ import backEnd.*;
 public class Scene extends JPanel implements Runnable{
 
 	private JPanel panel, mg;
-	private Thread thread = new Thread(this);
-	private JFrame frame;
+	public Thread thread = new Thread(this);
+	public static JFrame frame;
 	
 	private int worldWidth, worldHeight;
 	private String filename;
@@ -26,6 +26,7 @@ public class Scene extends JPanel implements Runnable{
 	
 	public static Image tile_grass; 
 	public static Image tile_road;
+	public static Image tile_M;
 	
 	private static Boolean isFirst = true;
 	public static Room room;
@@ -59,6 +60,7 @@ public class Scene extends JPanel implements Runnable{
 	
 	
 	public void define() {
+		setLayout(new GridLayout(1,1,0,0));
 		if(flag) {
 			map = new Map(worldWidth, worldHeight);
 		}else{
@@ -72,6 +74,7 @@ public class Scene extends JPanel implements Runnable{
 		tile_grass = new ImageIcon("resource/grass.jpg").getImage();
 		
 		tile_road = new ImageIcon("resource/road.jpg").getImage();
+		tile_M = new ImageIcon("resource/M.png").getImage();
 	}
 	
 	public void paintComponent( Graphics g ) {

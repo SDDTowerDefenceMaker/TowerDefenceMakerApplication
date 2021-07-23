@@ -1,6 +1,9 @@
 package frontEnd;
 
 import java.awt.*;
+
+import javax.swing.JLabel;
+
 import backEnd.Map;
 import backEnd.Material;
 import backEnd.Tile;
@@ -11,7 +14,9 @@ public class Menu {
 	private int worldWidth = Scene.room.worldWidth;
 	private int worldHeight = Scene.room.worldHeight;
 	private int tileSize = Scene.room.tileSize;
-	private int currentX, currentY;
+	private int currentX[] = new int[worldWidth*worldHeight];
+	private int currentY[] = new int[worldWidth*worldHeight];
+	private int M = 0;
 	
 	public static int hold = -1;
 	
@@ -52,6 +57,16 @@ public class Menu {
 					}
 				}
 			}
+		}else{
+			for(int i = 0; i < Scene.room.square.length; i++) {
+				for(int j = 0; j < Scene.room.square[0].length; j++) {
+					if(Scene.room.square[i][j].contains(Scene.mse)) {
+						currentX[M] = i;
+						currentY[M] = j;
+						M++;
+					}
+				}
+			}
 		}
 	}
 	
@@ -72,6 +87,9 @@ public class Menu {
 		if(flag == 1) {
 			if(hold == 0) g.drawImage(Scene.tile_grass, Scene.mse.x - items[0].width/2, Scene.mse.y - items[0].height/2, items[0].width, items[0].height, null);
 			if(hold == 1) g.drawImage(Scene.tile_road, Scene.mse.x - items[1].width/2, Scene.mse.y - items[1].height/2, items[1].width, items[1].height, null);
+		}
+		for(int k = 0; k < M; k++) {
+			g.drawImage(Scene.tile_M, (Scene.Width/2 - (worldWidth*tileSize)/2) + currentY[k] * tileSize, (Scene.Height/2 - (worldHeight*tileSize)/2) +  currentX[k] * tileSize, tileSize/3, tileSize/3, null);
 		}
 	}
 }
