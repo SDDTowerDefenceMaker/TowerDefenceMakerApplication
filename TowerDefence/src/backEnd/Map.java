@@ -23,6 +23,9 @@ public class Map {
 	public Map(String fName) {
 		importing(fName);
 	}
+	public void simulateNext() {
+		
+	}
 	
 	public boolean addTowerBase(int x, int y, String texture) {
 		Tiles[x][y] = new Tile(TowerBaseFactory.getTowerBase(texture), "towerbase", x, y);
