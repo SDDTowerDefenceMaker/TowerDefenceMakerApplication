@@ -15,7 +15,7 @@ import backEnd.*;
 public class Scene extends JPanel implements Runnable{
 
 	private JPanel panel, mg;
-	private Thread thread = new Thread(this);
+	public Thread thread = new Thread(this);
 	public static JFrame frame;
 	
 	private int worldWidth, worldHeight;
