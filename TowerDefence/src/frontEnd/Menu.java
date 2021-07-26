@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import backEnd.Map;
 import backEnd.Material;
 import backEnd.Tile;
+import backEnd.Path;
 
 public class Menu {
 	private static int itemNum = 8;
@@ -19,6 +20,9 @@ public class Menu {
 	private int M = 0;
 	
 	public static int hold = -1;
+	
+	public Path monster_path;
+	public int path_num = 0;
 	
 	public Rectangle[] items = new Rectangle[itemNum];
 	public Tile[] itemList = {new Tile(new Material("material"), "resource/grass.jpg"), new Tile(new Material("material"), "resource/road.jpg")};
@@ -49,6 +53,14 @@ public class Menu {
 				for(int i = 0; i < Scene.room.block.length; i++) {
 					for(int j = 0; j < Scene.room.block[0].length; j++) {
 						if(Scene.room.block[i][j].contains(Scene.mse)) {
+							if(hold == 1) {
+								if(path_num == 0) {
+									monster_path = new Path(i, j);
+								}else if(!monster_path.extendPaths(i, j)) {
+									continue;
+								}
+								path_num++;
+							}
 							Scene.map.addMaterial(i, j, itemList[hold].getType());
 							Scene.room = new Room(Scene.map.getMap());
 							flag = 0;

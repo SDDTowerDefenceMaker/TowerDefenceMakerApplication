@@ -28,6 +28,7 @@ public class Path {
 	public boolean extendPaths(int x, int y) {
 		if (isNeighbor(end, CoordinatesFactory.getCoordinate(x, y))) {
 			paths.add(CoordinatesFactory.getCoordinate(x, y));
+			end = CoordinatesFactory.getCoordinate(x, y);
 			return true;
 		}else {
 			return false;
