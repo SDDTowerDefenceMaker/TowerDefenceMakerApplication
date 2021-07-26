@@ -26,8 +26,8 @@ public class GUI extends JFrame{
 			width = 1280;
 		}
     	if (screen_height >= 1080) {
-			height = 900;
-			width = 1600;
+			height = 450;
+			width = 800;
 		}
     	setTitle("Tower Defence Maker");
     	setSize(new Dimension(width, height));

@@ -9,8 +9,8 @@ import backEnd.Map;
 
 public class Load extends JFrame{
 	
-	public static int width = 1600;
-	public static int height = 900;
+	public static int width = 800;
+	public static int height = 450;
 	private int worldWidth, worldHeight;
 	public File file;
 	static JFrame frame;
