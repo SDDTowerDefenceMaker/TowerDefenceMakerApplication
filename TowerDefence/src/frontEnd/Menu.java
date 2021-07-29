@@ -99,7 +99,7 @@ public class Menu {
 		}
 		g.drawImage(Scene.tile_grass, items[0].x, items[0].y, items[0].width, items[0].height, null); //First item -- grass
 		g.drawImage(Scene.tile_road, items[1].x, items[1].y, items[1].width, items[1].height, null); //Second item -- road
-		if(base > 0) g.drawImage(Scene.tile_base, items[2].x, items[2].y, items[2].width, items[2].height, null); //Third item -- base
+		g.drawImage(Scene.tile_base, items[2].x, items[2].y, items[2].width, items[2].height, null); //Third item -- base
 		g.drawImage(Scene.tile_cave, items[3].x, items[3].y, items[3].width, items[3].height, null); //Fourth item -- cave
 		if(flag == 1) {
 			if(hold == 0) g.drawImage(Scene.tile_grass, Scene.mse.x - items[0].width/2, Scene.mse.y - items[0].height/2, items[0].width, items[0].height, null);
