@@ -10,6 +10,7 @@ public class Map {
 	int y;
 	Material current_selected;
 	ArrayList<MonsterCave> monsterCaves;
+	Tile[][] TilesBackUp;
 	public Map(int x, int y) {
 		Tiles=new Tile[x][y];
 		this.x = x;
@@ -17,6 +18,7 @@ public class Map {
 		for (int i = 0; i < x; i++) {
 			for (int j = 0; j < y; j++) {
 				Tiles[i][j]=new Tile(MaterialFactory.getMaterial("resource/grass.jpg"),"material");//material, towerbase, monstercave
+				TilesBackUp[i][j]=Tiles[i][j];
 			}
 		}
 	}
@@ -24,7 +26,29 @@ public class Map {
 		importing(fName);
 	}
 	public void simulateNext() {
-		
+		for (MonsterCave cave : monsterCaves) {
+			if(cave.getMonster().getStepsTook()==0) {
+				cave.MonsterMove();
+				int tempx = cave.getMonster().getCoordinate().getX();
+				int tempy = cave.getMonster().getCoordinate().getY();
+				Tiles[tempx][tempy] = new Tile(cave.getMonster(), "monster", tempx, tempy);
+			}else {
+				int tempx = cave.getMonster().getCoordinate().getX();
+				int tempy = cave.getMonster().getCoordinate().getY();
+				Tiles[tempx][tempy] = TilesBackUp[tempx][tempy];
+				cave.MonsterMove();
+				tempx = cave.getMonster().getCoordinate().getX();
+				tempy = cave.getMonster().getCoordinate().getY();
+				Tiles[tempx][tempy] = new Tile(cave.getMonster(), "monster", tempx, tempy);
+				
+			}
+		}
+	}
+	public int getMonsterCavesNumber() {
+		return monsterCaves.size();
+	}
+	public boolean addPathToCave(int x, int y, int index) {
+		return monsterCaves.get(index).addPath(x, y);
 	}
 	
 	public boolean addTowerBase(int x, int y, String texture) {

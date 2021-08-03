@@ -3,7 +3,7 @@ package backEnd;
 public class Tile {
 	Coordinate locationCoordinate;
 	Object object;
-	String objectType;
+	String objectType;//material, monstercave, towerbase, monster
 	//material (name+color)
 	public Tile(Object o, String t) {
 		locationCoordinate = CoordinatesFactory.getCoordinate(0, 0);

@@ -1,16 +1,32 @@
 package backEnd;
 
+//import java.util.ArrayList;
+
 public class MonsterCave {
 	String texture;
 	Path monsterPaths;
 	Coordinate coordinate;
+	Monster monsterCreated;
 	public MonsterCave(String t, int x, int y) {
 		texture = t;
 		monsterPaths = new Path(x, y);
 		coordinate = CoordinatesFactory.getCoordinate(x, y);
+		
 	}
 	public String getTexture() {
 		return texture;
+	}
+	
+	public boolean addPath(int x, int y) {
+		return monsterPaths.extendPaths(x, y);
+	}
+	public Monster getMonster() {
+		return monsterCreated;
+	}
+	public void MonsterMove() {
+		monsterCreated.increaseSteps();
+		Coordinate nextMCoordinate = monsterPaths.paths.get(monsterCreated.getStepsTook());
+		monsterCreated.changeCoordinate(nextMCoordinate.getX(), nextMCoordinate.getY());
 	}
 	@Override
 	public int hashCode() {
