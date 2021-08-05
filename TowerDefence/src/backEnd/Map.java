@@ -9,12 +9,13 @@ public class Map {
 	int x;
 	int y;
 	Material current_selected;
-	ArrayList<MonsterCave> monsterCaves;
+	ArrayList<MonsterCave> monsterCaves = new ArrayList<>();
 	Tile[][] TilesBackUp;
 	public Map(int x, int y) {
 		Tiles=new Tile[x][y];
+		TilesBackUp = new Tile[x][y];
 		this.x = x;
-		this.y = y;
+		this.y = y;    
 		for (int i = 0; i < x; i++) {
 			for (int j = 0; j < y; j++) {
 				Tiles[i][j]=new Tile(MaterialFactory.getMaterial("resource/grass.jpg"),"material");//material, towerbase, monstercave
@@ -57,6 +58,7 @@ public class Map {
 	}
 	public boolean addMonsterCave(int x, int y, String texture) {
 		Tiles[x][y] = new Tile(MonsterCaveFactory.getMonsterCave(texture, x, y), "monstercave", x, y);
+		monsterCaves.add(new MonsterCave(texture, x, y));
 		return true; 
 	}
 	public boolean addMaterial(int x, int y, String texture) {

@@ -3,9 +3,11 @@ package frontEnd;
 import java.awt.*;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import backEnd.Map;
 import backEnd.Material;
+import backEnd.MonsterCave;
 import backEnd.Tile;
 import backEnd.Path;
 
@@ -19,6 +21,7 @@ public class Menu {
 	private int currentY[] = new int[worldWidth*worldHeight];
 	private int M = 0;
 	private int base = 1;
+	private MonsterCave cave;
 	
 	public static int hold = -1;
 	
@@ -27,7 +30,7 @@ public class Menu {
 	
 	public Rectangle[] items = new Rectangle[itemNum];
 	public Tile[] itemList = {new Tile(new Material("material"), "resource/grass.jpg"), new Tile(new Material("material"), "resource/road.jpg"), new Tile(new Material("base"), "resource/base.png")
-			, new Tile(new Material("material"), "resource/cave.png")};
+			, new Tile(new Material("monstercave"), "resource/cave.png")};
 	
 	public int flag = 0;
 	
@@ -56,15 +59,20 @@ public class Menu {
 					for(int j = 0; j < Scene.room.block[0].length; j++) {
 						if(Scene.room.block[i][j].contains(Scene.mse)) {
 							if(hold == 1) {
-								if(path_num == 0) {
-									monster_path = new Path(i, j);
-								}else if(!monster_path.extendPaths(i, j)) {
+								try{
+									if(Scene.map.addPathToCave(i, j, 0)) path_num++;
+									else continue;
+								}catch(Exception e) {
+									JOptionPane.showMessageDialog(Scene.frame, "ERROR: Please place a monster cave first!");
 									continue;
 								}
-								path_num++;
 							}
-							//if(Scene.map.getMap()[i][j].getType().equals("base")) base = 1;
-							Scene.map.addMaterial(i, j, itemList[hold].getType());
+							if(hold == 3) {
+								Scene.map.addMonsterCave(i, j, itemList[hold].getType());
+								Scene.map.addPathToCave(i, j, 0);
+							}else {
+								Scene.map.addMaterial(i, j, itemList[hold].getType());
+							}
 							Scene.room = new Room(Scene.map.getMap());
 							flag = 0;
 							hold = -1;
@@ -109,7 +117,6 @@ public class Menu {
 				g.drawImage(Scene.tile_base, Scene.mse.x - items[2].width/2, Scene.mse.y - items[2].height/2, items[2].width, items[2].height, null);
 			}
 			if(hold == 3) {
-				base = 0;
 				g.drawImage(Scene.tile_cave, Scene.mse.x - items[3].width/2, Scene.mse.y - items[3].height/2, items[3].width, items[3].height, null);
 			}
 		}
