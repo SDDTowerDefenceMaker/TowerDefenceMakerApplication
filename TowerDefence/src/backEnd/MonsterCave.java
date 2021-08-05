@@ -20,6 +20,9 @@ public class MonsterCave {
 	public boolean addPath(int x, int y) {
 		return monsterPaths.extendPaths(x, y);
 	}
+	public void revokePath() {
+		monsterPaths.revokePath();
+	}
 	public Monster getMonster() {
 		return monsterCreated;
 	}

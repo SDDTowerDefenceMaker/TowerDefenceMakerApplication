@@ -9,9 +9,10 @@ public class Map {
 	int x;
 	int y;
 	Material current_selected;
-	ArrayList<MonsterCave> monsterCaves = new ArrayList<>();
+	ArrayList<MonsterCave> monsterCaves;
 	Tile[][] TilesBackUp;
 	public Map(int x, int y) {
+		monsterCaves = new ArrayList<>();
 		Tiles=new Tile[x][y];
 		TilesBackUp = new Tile[x][y];
 		this.x = x;
@@ -25,6 +26,9 @@ public class Map {
 	}
 	public Map(String fName) {
 		importing(fName);
+	}
+	public void revokePath(int index) {
+		monsterCaves.get(index).revokePath();
 	}
 	public void simulateNext() {
 		for (MonsterCave cave : monsterCaves) {
