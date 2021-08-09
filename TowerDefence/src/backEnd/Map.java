@@ -94,8 +94,8 @@ public class Map {
 	    PrintWriter printWriter = new PrintWriter(fileWriter);
 	    printWriter.printf("%d %d\n", x, y);
 	    
-	    for (int i = 0; i < x; i++) {
-			for (int j = 0; j < y; j++) {
+	    for (int i = 0; i < y; i++) {
+			for (int j = 0; j < x; j++) {
 				printWriter.printf("%d %d ", i, j);
 				Tile t = Tiles[i][j];
 				if(t.getType().equals("material")) {
