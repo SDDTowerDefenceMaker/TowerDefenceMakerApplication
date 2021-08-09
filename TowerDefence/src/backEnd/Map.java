@@ -100,6 +100,8 @@ public class Map {
 				Tile t = Tiles[i][j];
 				if(t.getType().equals("material")) {
 					printWriter.printf("material %s\n", ((Material)t.getObject()).getTexture());
+				}else {
+					printWriter.printf("material resource/grass.jpg\n");
 				}
 			}
 		}
