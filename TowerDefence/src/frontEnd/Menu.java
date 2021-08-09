@@ -1,7 +1,11 @@
 package frontEnd;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -30,7 +34,7 @@ public class Menu {
 	
 	public Rectangle[] items = new Rectangle[itemNum];
 	public Tile[] itemList = {new Tile(new Material("material"), "resource/grass.jpg"), new Tile(new Material("material"), "resource/road.jpg"), new Tile(new Material("base"), "resource/base.png")
-			, new Tile(new Material("monstercave"), "resource/cave.png")};
+			, new Tile(new Material("monstercave"), "resource/cave.png"), new Tile(new Material("material"), "resource/M.png")};
 	
 	public int flag = 0;
 	
@@ -93,6 +97,7 @@ public class Menu {
 		}
 	}
 	
+	
 	public void draw(Graphics g) {
 		
 	}
@@ -109,16 +114,13 @@ public class Menu {
 		g.drawImage(Scene.tile_road, items[1].x, items[1].y, items[1].width, items[1].height, null); //Second item -- road
 		g.drawImage(Scene.tile_base, items[2].x, items[2].y, items[2].width, items[2].height, null); //Third item -- base
 		g.drawImage(Scene.tile_cave, items[3].x, items[3].y, items[3].width, items[3].height, null); //Fourth item -- cave
+		g.drawImage(Scene.tile_M, items[4].x, items[4].y, items[4].width, items[4].height, null);
 		if(flag == 1) {
 			if(hold == 0) g.drawImage(Scene.tile_grass, Scene.mse.x - items[0].width/2, Scene.mse.y - items[0].height/2, items[0].width, items[0].height, null);
 			if(hold == 1) g.drawImage(Scene.tile_road, Scene.mse.x - items[1].width/2, Scene.mse.y - items[1].height/2, items[1].width, items[1].height, null);
-			if(hold == 2) {
-				base = 0;
-				g.drawImage(Scene.tile_base, Scene.mse.x - items[2].width/2, Scene.mse.y - items[2].height/2, items[2].width, items[2].height, null);
-			}
-			if(hold == 3) {
-				g.drawImage(Scene.tile_cave, Scene.mse.x - items[3].width/2, Scene.mse.y - items[3].height/2, items[3].width, items[3].height, null);
-			}
+			if(hold == 2) g.drawImage(Scene.tile_base, Scene.mse.x - items[2].width/2, Scene.mse.y - items[2].height/2, items[2].width, items[2].height, null);
+			if(hold == 3) g.drawImage(Scene.tile_cave, Scene.mse.x - items[3].width/2, Scene.mse.y - items[3].height/2, items[3].width, items[3].height, null);
+			if(hold == 4) Scene.map.simulateNext();
 		}
 		for(int k = 0; k < M; k++) {
 			g.drawImage(Scene.tile_M, (Scene.Width/2 - (worldWidth*tileSize)/2) + currentY[k] * tileSize, (Scene.Height/2 - (worldHeight*tileSize)/2) +  currentX[k] * tileSize, tileSize/3, tileSize/3, null);

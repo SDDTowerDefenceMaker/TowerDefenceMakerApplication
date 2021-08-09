@@ -87,7 +87,7 @@ public class ModeSelectionPage {
 		Button_Test.setBounds(154, 153, 113, 23);
 		frame.getContentPane().add(Button_Test);
 		
-		JButton Button_Setup = new JButton("Setup");
+		JButton Button_Setup = new JButton("Settings");
 		Button_Setup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

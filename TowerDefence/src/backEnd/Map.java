@@ -101,7 +101,7 @@ public class Map {
 				if(t.getType().equals("material")) {
 					printWriter.printf("material %s\n", ((Material)t.getObject()).getTexture());
 				}else {
-					printWriter.printf("material resource/grass.jpg\n");
+					printWriter.printf("material resource/cave.png\n");
 				}
 			}
 		}
