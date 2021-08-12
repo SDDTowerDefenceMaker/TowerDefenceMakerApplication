@@ -14,7 +14,7 @@ public class MonsterCave {
 		column = y;
 		monsterPaths = new Path(x, y);
 		coordinate = CoordinatesFactory.getCoordinate(x, y);
-		
+		monsterCreated = new Monster(x, y);
 	}
 	public String getTexture() {
 		return texture;

@@ -35,8 +35,10 @@ public class Path {
 		}
 	}
 	public void revokePath() {
-		paths.remove(paths.size()-1);
-		end = paths.get(paths.size()-1);
+		if(start.equals(end)==false) {
+			paths.remove(paths.size()-1);
+			end = paths.get(paths.size()-1);
+		}
 	}
 	@Override
 	public int hashCode() {

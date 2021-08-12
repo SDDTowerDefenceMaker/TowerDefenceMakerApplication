@@ -27,8 +27,13 @@ public class Map {
 	public Map(String fName) {
 		importing(fName);
 	}
-	public void revokePath(int index) {
-		monsterCaves.get(index).revokePath();
+	public boolean revokePath(int index) {
+		if(index<monsterCaves.size()) {
+			monsterCaves.get(index).revokePath();
+			return true;
+		}else {
+			return false;
+		}
 	}
 	public void simulateNext() {
 		for (MonsterCave cave : monsterCaves) {
@@ -53,6 +58,7 @@ public class Map {
 		return monsterCaves.size();
 	}
 	public boolean addPathToCave(int x, int y, int index) {
+		if(index>=monsterCaves.size())return false;
 		return monsterCaves.get(index).addPath(x, y);
 	}
 	
