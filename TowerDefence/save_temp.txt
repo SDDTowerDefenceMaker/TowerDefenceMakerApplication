@@ -1,0 +1,10 @@
+3 3
+0 0 material resource/grass.jpg
+0 1 material resource/grass.jpg
+0 2 material resource/grass.jpg
+1 0 material resource/grass.jpg
+1 1 material resource/grass.jpg
+1 2 material resource/grass.jpg
+2 0 material resource/grass.jpg
+2 1 material resource/grass.jpg
+2 2 material resource/grass.jpg
