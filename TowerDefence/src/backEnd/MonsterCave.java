@@ -3,12 +3,15 @@ package backEnd;
 //import java.util.ArrayList;
 
 public class MonsterCave {
+	public int row, column;
 	String texture;
 	Path monsterPaths;
 	Coordinate coordinate;
 	Monster monsterCreated;
 	public MonsterCave(String t, int x, int y) {
 		texture = t;
+		row = x;
+		column = y;
 		monsterPaths = new Path(x, y);
 		coordinate = CoordinatesFactory.getCoordinate(x, y);
 		

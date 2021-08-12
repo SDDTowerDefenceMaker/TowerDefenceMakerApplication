@@ -37,6 +37,8 @@ public class Scene extends JPanel implements Runnable{
 	Tile[][] tiles;
 	public static Menu menu;
 	
+	public static Sprite[] monsters = new Sprite[5];
+	
 	public Scene(GUI frame, int x, int y) {
 		this.frame = frame;
 		worldWidth = x;
@@ -72,6 +74,11 @@ public class Scene extends JPanel implements Runnable{
 		tiles = map.getMap();
 		room = new Room(tiles);
 		menu = new Menu();
+		for(int i = 0; i < 5; i++) {
+			monsters[i] = new Sprite();
+			//monsters[i].spawn();
+		}
+		
 		
 		tile_grass = new ImageIcon("resource/grass.jpg").getImage();
 		tile_road = new ImageIcon("resource/road.jpg").getImage();
@@ -87,48 +94,45 @@ public class Scene extends JPanel implements Runnable{
 			define();
 			
 			isFirst = false;
-//			@SuppressWarnings("unused")
-//			Mouse mouse = new Mouse(this);
-			/*addMouseListener(new MouseListener() {
-				  public void mousePressed(MouseEvent e) {
-				  }
-
-				  public void mouseReleased(MouseEvent e) {
-					if (SwingUtilities.isRightMouseButton(e))
-				    {
-						save();
-				  
-				    }
-				  }
-				  public void mouseClicked(MouseEvent e) {
-				  }
-
-				  public void mouseEntered(MouseEvent e) {
-				  }
-
-				  public void mouseExited(MouseEvent e) {
-				  }
-				  
-				});*/
 		}
 
 		
-		//save();
 		g.clearRect(0, 0, Width, Height);
 		
 		
 		room.draw(g, map);
+		for(int i = 0; i < 5; i++) {
+			if(monsters[i].start) monsters[i].draw(g);
+		}
+		
 		menu.draw(g, map);
 		saveButton.draw(g);
 	}
 	
 		
-	public static int fpsFrame = 0, fps = 1000000;
+	public static int spawnTime = 1600, spawnFrame = 0;
 		
+	public static void monsterCreate() {
+		if(spawnFrame >= spawnTime) {
+			for(int i = 0; i < 5; i++) {
+				if(!monsters[i].start) {
+					monsters[i].spawn();
+					break;
+				}
+			}
+			spawnFrame = 0;
+		}else {
+			spawnFrame += 1;
+		}
+	}
+	
 	public void run() {
 		while(true) {
 				if(!isFirst) {
-					
+					monsterCreate();
+					for(int i = 0; i < 5; i++) {
+						if(monsters[i].start) monsters[i].simulate();
+					}
 				}
 				repaint();
 				

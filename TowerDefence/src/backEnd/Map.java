@@ -9,7 +9,7 @@ public class Map {
 	int x;
 	int y;
 	Material current_selected;
-	ArrayList<MonsterCave> monsterCaves;
+	public ArrayList<MonsterCave> monsterCaves;
 	Tile[][] TilesBackUp;
 	public Map(int x, int y) {
 		monsterCaves = new ArrayList<>();

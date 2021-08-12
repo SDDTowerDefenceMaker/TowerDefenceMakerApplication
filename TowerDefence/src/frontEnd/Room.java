@@ -7,7 +7,7 @@ import backEnd.Tile;
 public class Room {
 	public int worldWidth;
 	public int worldHeight;
-	public static int tileSize = 96;
+	public int tileSize = 96;
 	
 	public Tile[][] tile;
 	public Block[][] block;

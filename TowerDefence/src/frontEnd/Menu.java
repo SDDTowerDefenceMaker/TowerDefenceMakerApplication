@@ -44,7 +44,7 @@ public class Menu {
 	
 	public void define() {
 		for(int i = 0; i < itemNum; i++) {
-			if (Room.tileSize != 96) {itemSize = Room.tileSize*2/3;}
+			if (Scene.room.tileSize != 96) {itemSize = Scene.room.tileSize*2/3;}
 			items[i] = new Rectangle(Scene.Width - itemSize - 2, (itemSize + 2)*i + 2, itemSize, itemSize);
 		}
 	}
@@ -120,7 +120,10 @@ public class Menu {
 			if(hold == 1) g.drawImage(Scene.tile_road, Scene.mse.x - items[1].width/2, Scene.mse.y - items[1].height/2, items[1].width, items[1].height, null);
 			if(hold == 2) g.drawImage(Scene.tile_base, Scene.mse.x - items[2].width/2, Scene.mse.y - items[2].height/2, items[2].width, items[2].height, null);
 			if(hold == 3) g.drawImage(Scene.tile_cave, Scene.mse.x - items[3].width/2, Scene.mse.y - items[3].height/2, items[3].width, items[3].height, null);
-			if(hold == 4) Scene.map.simulateNext();
+			if(hold == 4) {
+				
+				
+			}
 		}
 		for(int k = 0; k < M; k++) {
 			g.drawImage(Scene.tile_M, (Scene.Width/2 - (worldWidth*tileSize)/2) + currentY[k] * tileSize, (Scene.Height/2 - (worldHeight*tileSize)/2) +  currentX[k] * tileSize, tileSize/3, tileSize/3, null);
