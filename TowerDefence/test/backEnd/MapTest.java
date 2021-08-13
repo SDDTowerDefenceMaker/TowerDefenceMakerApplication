@@ -31,7 +31,7 @@ public class MapTest {
 		assertFalse(map.revokePath(1));
 		assertTrue(map.revokePath(0));
 		MonsterCave m = (MonsterCave)map.getMap()[0][0].getObject();
-		assertTrue(m.monsterPaths.paths.size()==0);
+		assertTrue(m.monsterPaths.paths.get(0).getX()==0&&m.monsterPaths.paths.get(0).getY()==0);
 		
 	}
 
