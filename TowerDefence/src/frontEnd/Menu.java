@@ -121,8 +121,7 @@ public class Menu {
 			if(hold == 2) g.drawImage(Scene.tile_base, Scene.mse.x - items[2].width/2, Scene.mse.y - items[2].height/2, items[2].width, items[2].height, null);
 			if(hold == 3) g.drawImage(Scene.tile_cave, Scene.mse.x - items[3].width/2, Scene.mse.y - items[3].height/2, items[3].width, items[3].height, null);
 			if(hold == 4) {
-				
-				
+				Scene.simulate = true;
 			}
 		}
 		for(int k = 0; k < M; k++) {

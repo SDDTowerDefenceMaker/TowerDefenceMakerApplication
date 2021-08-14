@@ -36,8 +36,9 @@ public class Scene extends JPanel implements Runnable{
 	public static SaveButton saveButton;
 	Tile[][] tiles;
 	public static Menu menu;
+	public static Boolean simulate = false;
 	
-	public static Sprite[] monsters = new Sprite[5];
+	public static Sprite[] monsters = new Sprite[10];
 	
 	public Scene(GUI frame, int x, int y) {
 		this.frame = frame;
@@ -74,9 +75,8 @@ public class Scene extends JPanel implements Runnable{
 		tiles = map.getMap();
 		room = new Room(tiles);
 		menu = new Menu();
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < 10; i++) {
 			monsters[i] = new Sprite();
-			//monsters[i].spawn();
 		}
 		
 		
@@ -101,7 +101,7 @@ public class Scene extends JPanel implements Runnable{
 		
 		
 		room.draw(g, map);
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < 10; i++) {
 			if(monsters[i].start) monsters[i].draw(g);
 		}
 		
@@ -114,7 +114,7 @@ public class Scene extends JPanel implements Runnable{
 		
 	public static void monsterCreate() {
 		if(spawnFrame >= spawnTime) {
-			for(int i = 0; i < 5; i++) {
+			for(int i = 0; i < 10; i++) {
 				if(!monsters[i].start) {
 					monsters[i].spawn();
 					break;
@@ -129,10 +129,13 @@ public class Scene extends JPanel implements Runnable{
 	public void run() {
 		while(true) {
 				if(!isFirst) {
-					monsterCreate();
-					for(int i = 0; i < 5; i++) {
-						if(monsters[i].start) monsters[i].simulate();
+					if(simulate) {
+						monsterCreate();
+						for(int i = 0; i < 10; i++) {
+							if(monsters[i].start) monsters[i].simulate();
+						}
 					}
+					//simulate = false;
 				}
 				repaint();
 				

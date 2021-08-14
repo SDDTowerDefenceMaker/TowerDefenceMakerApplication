@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Path {
 	Coordinate start;
 	Coordinate end;
-	ArrayList<Coordinate> paths;
+	public ArrayList<Coordinate> paths;
 	public Path(int x, int y) {
 		paths = new ArrayList<Coordinate>();
 		paths.add(CoordinatesFactory.getCoordinate(x, y));
