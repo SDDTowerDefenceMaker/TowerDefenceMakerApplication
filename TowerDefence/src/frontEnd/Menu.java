@@ -35,6 +35,7 @@ public class Menu {
 	
 	public Rectangle[] items = new Rectangle[itemNum];
 	public Rectangle[] health = new Rectangle[3];
+	public int max_health = health.length;
 	public Tile[] itemList = {new Tile(new Material("material"), "resource/grass.jpg"), new Tile(new Material("material"), "resource/road.jpg"), new Tile(new Material("base"), "resource/base.png")
 			, new Tile(new Material("monstercave"), "resource/cave.png"), new Tile(new Material("material"), "resource/M.png"),  new Tile(new Material("material"), "resource/heart.png")};
 	
@@ -125,7 +126,7 @@ public class Menu {
 		g.drawImage(Scene.tile_cave, items[3].x, items[3].y, items[3].width, items[3].height, null); //Fourth item -- cave
 		g.drawImage(Scene.tile_M, items[4].x, items[4].y, items[4].width, items[4].height, null); //Fifth item -- simulate
 		
-		for(int i = 0; i < health.length; i++) g.drawImage(Scene.tile_heart, health[i].x, health[i].y, health[i].width, health[i].height, null); //Health
+		for(int i = 0; i < max_health; i++) g.drawImage(Scene.tile_heart, health[i].x, health[i].y, health[i].width, health[i].height, null); //Health
 		
 		if(flag == 1) {
 			if(hold == 0) g.drawImage(Scene.tile_grass, Scene.mse.x - items[0].width/2, Scene.mse.y - items[0].height/2, items[0].width, items[0].height, null);

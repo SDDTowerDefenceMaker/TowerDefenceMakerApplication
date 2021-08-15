@@ -22,8 +22,8 @@ public class Sprite extends Rectangle {
 			yC = Scene.map.monsterCaves.get(0).column;
 		}
 		start = true;
-		x = Scene.room.block[Scene.map.monsterCaves.get(0).row][Scene.map.monsterCaves.get(0).column].x;
-		y = Scene.room.block[Scene.map.monsterCaves.get(0).row][Scene.map.monsterCaves.get(0).column].y;
+		x = Scene.room.block[Scene.map.monsterCaves.get(0).row][Scene.map.monsterCaves.get(0).column].x + sprite_size/2;
+		y = Scene.room.block[Scene.map.monsterCaves.get(0).row][Scene.map.monsterCaves.get(0).column].y + sprite_size/2;
 	}
 	
 	public int walkFrame = 0, walkSpeed = 30;
@@ -50,9 +50,19 @@ public class Sprite extends Rectangle {
 				if(direct > 0) direct = 0; //right
 				else direct = 1; //left
 			}
+			
 			walkCount++;
 			if(walkCount == Scene.room.tileSize) {
-				if(index < Scene.map.monsterCaves.get(0).monsterPaths.paths.size()-1) index++;
+				
+				if(index < Scene.map.monsterCaves.get(0).monsterPaths.paths.size()) {
+					index++;
+				}
+				
+				if(index == Scene.map.monsterCaves.get(0).monsterPaths.paths.size()) {
+					start = false;
+					Scene.menu.max_health--;
+					index --;
+				}
 				walkCount = 0;
 			}
 			
