@@ -29,6 +29,7 @@ public class Scene extends JPanel implements Runnable{
 	public static Image tile_M;
 	public static Image tile_base;
 	public static Image tile_cave;
+	public static Image tile_heart;
 	
 	private static Boolean isFirst = true;
 	public static Room room;
@@ -84,6 +85,7 @@ public class Scene extends JPanel implements Runnable{
 		tile_road = new ImageIcon("resource/road.jpg").getImage();
 		tile_base = new ImageIcon("resource/base.png").getImage();
 		tile_cave = new ImageIcon("resource/cave.png").getImage();
+		tile_heart = new ImageIcon("resource/heart.png").getImage();
 		tile_M = new ImageIcon("resource/M.png").getImage();
 	}
 	
