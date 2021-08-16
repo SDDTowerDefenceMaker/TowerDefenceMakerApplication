@@ -137,7 +137,7 @@ public class Scene extends JPanel implements Runnable{
 							if(monsters[i].start) monsters[i].simulate();
 						}
 					}
-					//simulate = false;
+					simulate = false;
 				}
 				repaint();
 				

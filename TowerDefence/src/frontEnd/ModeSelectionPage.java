@@ -79,7 +79,7 @@ public class ModeSelectionPage {
 		Button_Load.setBounds(154, 120, 113, 23);
 		frame.getContentPane().add(Button_Load);
 		
-		JButton Button_Test = new JButton("Test Game");
+		JButton Button_Test = new JButton("Settings");
 		Button_Test.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -87,13 +87,13 @@ public class ModeSelectionPage {
 		Button_Test.setBounds(154, 153, 113, 23);
 		frame.getContentPane().add(Button_Test);
 		
-		JButton Button_Setup = new JButton("Settings");
+		/*JButton Button_Setup = new JButton("Settings");
 		Button_Setup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		Button_Setup.setBounds(154, 186, 113, 23);
-		frame.getContentPane().add(Button_Setup);
+		frame.getContentPane().add(Button_Setup);*/
 		
 		JLabel ModeSelectionTitle = new JLabel("Tower Defense Maker");
 		ModeSelectionTitle.setHorizontalAlignment(SwingConstants.CENTER);
