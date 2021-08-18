@@ -68,7 +68,7 @@ public class Map {
 	}
 	public boolean addMonsterCave(int x, int y, String texture) {
 		Tiles[x][y] = new Tile(MonsterCaveFactory.getMonsterCave(texture, x, y), "monstercave", x, y);
-		monsterCaves.add(new MonsterCave(texture, x, y));
+		monsterCaves.add(MonsterCaveFactory.getMonsterCave(texture, x, y));
 		return true; 
 	}
 	public boolean addMaterial(int x, int y, String texture) {
