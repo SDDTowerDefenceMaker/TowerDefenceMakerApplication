@@ -1,11 +1,13 @@
 package backEnd;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class MonsterCave {
 	public int row, column;
 	String texture;
-	Path monsterPaths;
+	public ArrayList<Integer> r = new ArrayList<>();
+	public ArrayList<Integer> c = new ArrayList<>();
+	public Path monsterPaths;
 	Coordinate coordinate;
 	Monster monsterCreated;
 	public MonsterCave(String t, int x, int y) {
@@ -21,6 +23,8 @@ public class MonsterCave {
 	}
 	
 	public boolean addPath(int x, int y) {
+		r.add(x);
+		c.add(y);
 		return monsterPaths.extendPaths(x, y);
 	}
 	public void revokePath() {

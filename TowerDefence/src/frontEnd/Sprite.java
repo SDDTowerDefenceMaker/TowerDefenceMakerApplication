@@ -3,9 +3,10 @@ package frontEnd;
 import java.awt.*;
 
 public class Sprite extends Rectangle {
+	int index = 1;
 	public int xC, yC;
 	public int sprite_size = 52;
-	public int direct = 2;
+	public int direct = 0;
 	public int walkCount = 0;
 	public boolean start = false;
 	
@@ -17,40 +18,55 @@ public class Sprite extends Rectangle {
 		for(int i = 0; i < Scene.room.block.length; i++) {
 			setBounds(Scene.room.block[i][0].x, Scene.room.block[i][0].y, sprite_size, sprite_size);
 			
-			xC = 0;
-			yC = i;
+			xC = Scene.map.monsterCaves.get(0).row;
+			yC = Scene.map.monsterCaves.get(0).column;
 		}
 		start = true;
-		x = Scene.room.block[0][0].x;
-		y = Scene.room.block[0][0].y;
+		x = Scene.room.block[Scene.map.monsterCaves.get(0).row][Scene.map.monsterCaves.get(0).column].x + sprite_size/2;
+		y = Scene.room.block[Scene.map.monsterCaves.get(0).row][Scene.map.monsterCaves.get(0).column].y + sprite_size/2;
 	}
 	
-	public int walkFrame = 0, walkSpeed = 40;
+	public int walkFrame = 0, walkSpeed = 30;
 	
 	public void simulate() {
 		if(walkFrame >= walkSpeed) {
-			x += 1;
-			/*if(direct == 2) { //move right
-				x += 1;
-			}else if(direct == 0) { //move upward
-				y -= 1;
-			}else if(direct == 1) { //move downward
+			if(direct == 0) {
+				x+=1;
+			}else if(direct == 1) {
+				x-=1;
+			}else if(direct == 2) {
 				y+=1;
+			}else {
+				y-=1;
 			}
-			walkCount++;
+			if(Scene.map.monsterCaves.get(0).r.get(index) - xC != 0) {
+				direct = Scene.map.monsterCaves.get(0).r.get(index)- xC;
+				xC = Scene.map.monsterCaves.get(0).r.get(index);
+				if(direct > 0) direct = 2; //down
+				else direct = 3; //up
+			}else if(Scene.map.monsterCaves.get(0).c.get(index) - yC != 0){
+				direct = Scene.map.monsterCaves.get(0).c.get(index)- yC;
+				yC = Scene.map.monsterCaves.get(0).c.get(index);
+				if(direct > 0) direct = 0; //right
+				else direct = 1; //left
+			}
 			
+			walkCount++;
 			if(walkCount == Scene.room.tileSize) {
-				if(direct == 2) { 
-					xC += 1;
-				}else if(direct == 0) { 
-					yC -= 1;
-				}else if(direct == 1) { 
-					yC += 1;
+				
+				if(index < Scene.map.monsterCaves.get(0).monsterPaths.paths.size()) {
+					index++;
 				}
 				
-				//if(Scene.room.block[yC][xC])
+				if(index == Scene.map.monsterCaves.get(0).monsterPaths.paths.size()) {
+					start = false;
+					Scene.menu.max_health--;
+					index --;
+				}
+				walkCount = 0;
 			}
-			walkFrame = 0;*/
+			
+			walkFrame = 0;
 		}else{
 			walkFrame+=1;
 		}
