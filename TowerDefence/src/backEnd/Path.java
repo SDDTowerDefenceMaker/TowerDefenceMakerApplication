@@ -6,6 +6,11 @@ public class Path {
 	private Coordinate start;
 	private Coordinate end;
 	private  ArrayList<Coordinate> paths;
+	/**
+	 * initialize a path tile with specified x and y
+	 * @param x coordinate
+	 * @param y coordinate
+	 */
 	public Path(int x, int y) {
 		paths = new ArrayList<Coordinate>();
 		paths.add(CoordinatesFactory.getCoordinate(x, y));

@@ -27,6 +27,12 @@ public class Map {
 	public Map(String fName) {
 		importing(fName);
 	}
+	
+	/**
+	 * 
+	 * @param index of the cave you want the path inside to revoke
+	 * @return true if the path is successfully revoked; false if the path is not.
+	 */
 	public boolean revokePath(int index) {
 		if(index<monsterCaves.size()) {
 			monsterCaves.get(index).revokePath();
@@ -35,6 +41,10 @@ public class Map {
 			return false;
 		}
 	}
+	
+	/**
+	 * Simulate the monster's next move
+	 */
 	public void simulateNext() {
 		for (MonsterCave cave : monsterCaves) {
 			if(cave.getMonster().getStepsTook()==0) {
@@ -54,18 +64,45 @@ public class Map {
 			}
 		}
 	}
+	
+	/**
+	 * @return how many monstercaves are there
+	 */
 	public int getMonsterCavesNumber() {
 		return monsterCaves.size();
 	}
+	
+	/**
+	 * 
+	 * @param x: x coordinate of the path
+	 * @param y: y coordinate of the path
+	 * @param index: index of the cave you want the path to be added to
+	 * @return true if successfully added. False otherwise
+	 */
 	public boolean addPathToCave(int x, int y, int index) {
 		if(index>=monsterCaves.size())return false;
 		return monsterCaves.get(index).addPath(x, y);
 	}
 	
+	/**
+	 * 
+	 * @param x: x coordinate of the Towerbase
+	 * @param y: y coordinate of the Towerbase
+	 * @param texture: texture of the base
+	 * @return true if successfully added. False otherwise
+	 */
 	public boolean addTowerBase(int x, int y, String texture) {
 		Tiles[x][y] = new Tile(TowerBaseFactory.getTowerBase(texture), "towerbase", x, y);
 		return true; 
 	}
+	
+	/**
+	 * 
+	 * @param x: x coordinate of the MonsterCave
+	 * @param y: y coordinate of the MonsterCavse
+	 * @param texture: texture of the cave
+	 * @return true if successfully added. False otherwise
+	 */
 	public boolean addMonsterCave(int x, int y, String texture) {
 		Tiles[x][y] = new Tile(MonsterCaveFactory.getMonsterCave(texture, x, y), "monstercave", x, y);
 		monsterCaves.add(MonsterCaveFactory.getMonsterCave(texture, x, y));
