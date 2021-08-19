@@ -82,6 +82,13 @@ public class ModeSelectionPage {
 		JButton Button_Test = new JButton("Settings");
 		Button_Test.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				try {
+					SettingsPage window = new SettingsPage();
+					window.frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		Button_Test.setBounds(154, 153, 113, 23);

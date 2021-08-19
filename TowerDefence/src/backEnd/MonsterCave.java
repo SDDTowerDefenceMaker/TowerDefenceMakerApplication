@@ -40,14 +40,13 @@ public class MonsterCave {
 	}
 	@Override
 	public int hashCode() {
-		int tmp = ( texture.hashCode() +  ((coordinate.hashCode()+1)/2));
-        return coordinate.hashCode() +  (tmp * tmp);
+		return coordinate.hashCode();
 	}
 	@Override
 	public boolean equals(Object obj) {
 		if(obj.getClass().equals(this.getClass())) {
 			MonsterCave c = (MonsterCave) obj;
-			return c.texture.equals(this.texture);
+			return c.coordinate.getX()==this.coordinate.getX()&&c.coordinate.getY()==this.coordinate.getY();
 		}else {
 			return false;
 		}

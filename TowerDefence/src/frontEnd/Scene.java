@@ -7,8 +7,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.*;
 import java.io.File;
+import java.io.InputStream;
+import java.io.IOException;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.swing.*;
+import javax.sound.sampled.*;
 
 import backEnd.*;
 
@@ -23,6 +30,7 @@ public class Scene extends JPanel implements Runnable{
 	private Boolean flag = true;
 	public static int Width, Height;
 	public static Point mse = new Point(0, 0);
+	public static int volume = 0;
 	
 	public static Image tile_grass; 
 	public static Image tile_road;
@@ -48,8 +56,22 @@ public class Scene extends JPanel implements Runnable{
 		
 		frame.addMouseListener(new MseListener());
 		frame.addMouseMotionListener(new MseListener());
-		
 		thread.start();
+		File audioFile = new File("resource/bgm.wav");
+		try (AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile))
+		{
+			Clip audioClip = AudioSystem.getClip();
+			audioClip.open(audioStream);
+			FloatControl gainControl = (FloatControl) audioClip.getControl(FloatControl.Type.MASTER_GAIN);
+			gainControl.setValue(volume);
+			System.out.println("Audio started");
+			audioClip.start();
+		}
+		catch (IOException | LineUnavailableException | UnsupportedAudioFileException e)
+		{
+			e.printStackTrace();
+		}
+		
 		
 	}
 	
@@ -62,6 +84,22 @@ public class Scene extends JPanel implements Runnable{
 		frame.addMouseMotionListener(new MseListener());
 		
 		thread.start();
+		File audioFile = new File("resource/bgm.wav");
+		try (AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile))
+		{
+			Clip audioClip = AudioSystem.getClip();
+			audioClip.open(audioStream);
+			FloatControl gainControl = (FloatControl) audioClip.getControl(FloatControl.Type.MASTER_GAIN);
+			gainControl.setValue((volume));
+			System.out.println("Audio started");
+			audioClip.start();
+
+		}
+		catch (IOException | LineUnavailableException | UnsupportedAudioFileException e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
@@ -87,6 +125,7 @@ public class Scene extends JPanel implements Runnable{
 		tile_cave = new ImageIcon("resource/cave.png").getImage();
 		tile_heart = new ImageIcon("resource/heart.png").getImage();
 		tile_M = new ImageIcon("resource/M.png").getImage();
+		
 	}
 	
 	public void paintComponent( Graphics g ) {
