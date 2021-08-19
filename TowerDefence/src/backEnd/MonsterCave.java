@@ -2,7 +2,7 @@ package backEnd;
 
 import java.util.ArrayList;
 
-public class MonsterCave {
+public class MonsterCave extends MapOBJ {
 	private  int row, column;
 	private String texture;
 	private  ArrayList<Integer> r = new ArrayList<>();

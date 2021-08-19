@@ -1,6 +1,6 @@
 package backEnd;
 
-public class TowerBase {
+public class TowerBase extends MapOBJ {
 	private String texture;
 	public TowerBase(String texture) {
 		// TODO Auto-generated constructor stub

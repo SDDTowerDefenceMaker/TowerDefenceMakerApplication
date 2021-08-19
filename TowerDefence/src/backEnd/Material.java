@@ -1,6 +1,6 @@
 package backEnd;
 
-public class Material {
+public class Material extends MapOBJ{
 	private String texture;
 	public Material(String t) {
 		texture = t;
