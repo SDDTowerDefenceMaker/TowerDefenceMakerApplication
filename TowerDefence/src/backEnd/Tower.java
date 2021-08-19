@@ -1,10 +1,10 @@
 package backEnd;
 
 public class Tower {	
-	String texture;
-	float attack;
-	float s_interval;
-	int range;
+	private String texture;
+	private float attack;
+	private float s_interval;
+	private int range;
 	public Tower(String t, float a, float i, int r) {
 		texture = t;
 		attack = a;

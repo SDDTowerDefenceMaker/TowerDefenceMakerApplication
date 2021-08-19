@@ -3,7 +3,7 @@ package backEnd;
 import java.util.HashMap;
 
 public class MaterialFactory {
-	static HashMap<Material, Material> MaterialMap;
+	static private  HashMap<Material, Material> MaterialMap;
 	static public Material getMaterial(String texture) {
 		Material material = new Material(texture);
 		if (MaterialMap==null) {

@@ -1,9 +1,9 @@
 package backEnd;
 
 public class Tile {
-	Coordinate locationCoordinate;
-	Object object;
-	String objectType;//material, monstercave, towerbase, monster
+	private Coordinate locationCoordinate;
+	private Object object;
+	private String objectType;//material, monstercave, towerbase, monster
 	//material (name+color)
 	public Tile(Object o, String t) {
 		locationCoordinate = CoordinatesFactory.getCoordinate(0, 0);

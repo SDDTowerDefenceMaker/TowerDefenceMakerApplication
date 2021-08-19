@@ -3,9 +3,9 @@ package backEnd;
 import java.util.ArrayList;
 
 public class Path {
-	Coordinate start;
-	Coordinate end;
-	public ArrayList<Coordinate> paths;
+	private Coordinate start;
+	private Coordinate end;
+	private  ArrayList<Coordinate> paths;
 	public Path(int x, int y) {
 		paths = new ArrayList<Coordinate>();
 		paths.add(CoordinatesFactory.getCoordinate(x, y));
@@ -39,6 +39,9 @@ public class Path {
 			paths.remove(paths.size()-1);
 			end = paths.get(paths.size()-1);
 		}
+	}
+	public ArrayList<Coordinate> getPath() {
+		return paths;
 	}
 	@Override
 	public int hashCode() {

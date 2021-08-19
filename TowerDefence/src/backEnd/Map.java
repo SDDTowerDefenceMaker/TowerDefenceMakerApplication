@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Map {
-	Tile[][] Tiles;
-	int x;
-	int y;
-	Material current_selected;
+	private Tile[][] Tiles;
+	private int x;
+	private int y;
+	private Material current_selected;
 	public ArrayList<MonsterCave> monsterCaves;
-	Tile[][] TilesBackUp;
+	private Tile[][] TilesBackUp;
 	public Map(int x, int y) {
 		monsterCaves = new ArrayList<>();
 		Tiles=new Tile[x][y];

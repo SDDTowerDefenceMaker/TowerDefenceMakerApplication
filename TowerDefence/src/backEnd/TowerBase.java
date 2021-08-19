@@ -1,7 +1,7 @@
 package backEnd;
 
 public class TowerBase {
-	String texture;
+	private String texture;
 	public TowerBase(String texture) {
 		// TODO Auto-generated constructor stub
 	}

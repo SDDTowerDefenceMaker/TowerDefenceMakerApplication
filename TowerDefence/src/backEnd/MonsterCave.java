@@ -3,13 +3,28 @@ package backEnd;
 import java.util.ArrayList;
 
 public class MonsterCave {
-	public int row, column;
-	String texture;
-	public ArrayList<Integer> r = new ArrayList<>();
-	public ArrayList<Integer> c = new ArrayList<>();
-	public Path monsterPaths;
-	Coordinate coordinate;
-	Monster monsterCreated;
+	private  int row, column;
+	private String texture;
+	private  ArrayList<Integer> r = new ArrayList<>();
+	private  ArrayList<Integer> c = new ArrayList<>();
+	private  Path monsterPaths;
+	private Coordinate coordinate;
+	private Monster monsterCreated;
+	public ArrayList<Integer> getR() {
+		return r;
+	}
+	public ArrayList<Integer> getC() {
+		return c;
+	}
+	public Path getMonsterPath() {
+		return monsterPaths;
+	}
+	public int getRow() {
+		return row;
+	}
+	public int getColumn() {
+		return column;
+	}
 	public MonsterCave(String t, int x, int y) {
 		texture = t;
 		row = x;
@@ -35,7 +50,7 @@ public class MonsterCave {
 	}
 	public void MonsterMove() {
 		monsterCreated.increaseSteps();
-		Coordinate nextMCoordinate = monsterPaths.paths.get(monsterCreated.getStepsTook());
+		Coordinate nextMCoordinate = monsterPaths.getPath().get(monsterCreated.getStepsTook());
 		monsterCreated.changeCoordinate(nextMCoordinate.getX(), nextMCoordinate.getY());
 	}
 	@Override

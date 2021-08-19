@@ -3,7 +3,7 @@ package backEnd;
 import java.util.HashMap;
 
 public class TowerBaseFactory {
-	static HashMap<TowerBase, TowerBase> TowerBaseMap;
+	static private HashMap<TowerBase, TowerBase> TowerBaseMap;
 	static public TowerBase getTowerBase(String texture) {
 		TowerBase towerBase = new TowerBase(texture);
 		if (TowerBaseMap==null) {

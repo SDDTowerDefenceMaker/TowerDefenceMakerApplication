@@ -7,13 +7,13 @@ public class MseListener implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		Scene.mse = new Point(e.getX() + (GUI.width - Scene.Width)/2, e.getY() + (GUI.height - Scene.Height)/2);
+		Scene.mse = new Point(e.getX(), e.getY());
 		
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		Scene.mse = new Point(e.getX() - (GUI.width - Scene.Width)/2, e.getY() - (GUI.height - Scene.Height)/2);
+		Scene.mse = new Point(e.getX(), e.getY());
 		
 	}
 

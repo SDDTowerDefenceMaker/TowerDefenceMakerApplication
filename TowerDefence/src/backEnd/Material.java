@@ -1,7 +1,7 @@
 package backEnd;
 
 public class Material {
-	String texture;
+	private String texture;
 	public Material(String t) {
 		texture = t;
 	}
