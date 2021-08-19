@@ -115,7 +115,6 @@ public class Menu {
 	public void draw(Graphics g, Map map) {
 		for(int i = 0; i < itemNum; i++) {
 			if(items[i].contains(Scene.mse)) {
-				g.setColor(new Color(255, 255, 255, 100));
 				g.fillRect(items[i].x, items[i].y, items[i].width, items[i].height);
 			}
 			
