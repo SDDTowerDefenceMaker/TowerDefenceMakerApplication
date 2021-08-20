@@ -13,6 +13,11 @@ public class Room {
 	public Block[][] block;
 	public Rectangle[][] square;
 	
+	/**
+	 * 
+	 * @param t map data
+	 * @effect create the map
+	 */
 	public Room(Tile[][] t) {
 		tile = t;
 		worldWidth = tile[0].length;
@@ -21,6 +26,10 @@ public class Room {
 		define();
 	}
 	
+	/**
+	 * 
+	 * @effect draw each block for the map
+	 */
 	public void draw(Graphics g, Map map) {
 		tile = map.getMap();
 		for(int i = 0; i < block.length; i++) {
@@ -30,6 +39,9 @@ public class Room {
 		}
 	}
 	
+	/**
+	 * initialize each block of the map
+	 */
 	public void define() {
 		block = new Block[worldHeight][worldWidth];
 		square = new Rectangle[block.length][block[0].length];

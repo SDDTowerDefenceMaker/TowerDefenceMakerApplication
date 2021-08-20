@@ -1,13 +1,7 @@
 package frontEnd;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.*;
 import java.io.File;
-import java.io.InputStream;
 import java.io.IOException;
 
 import javax.sound.sampled.AudioInputStream;
@@ -21,7 +15,10 @@ import backEnd.*;
 
 public class Scene extends JPanel implements Runnable{
 
-	private JPanel panel, mg;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4458714366199267285L;
 	public Thread thread = new Thread(this);
 	public static JFrame frame;
 	
@@ -49,8 +46,14 @@ public class Scene extends JPanel implements Runnable{
 	
 	public static Sprite[] monsters = new Sprite[3];
 	
+	/**
+	 * Create the game for New Game
+	 * @param frame New Game interface
+	 * @param x the width of the map
+	 * @param y the height of the map
+	 */
 	public Scene(GUI frame, int x, int y) {
-		this.frame = frame;
+		Scene.frame = frame;
 		worldWidth = x;
 		worldHeight = y;
 		
@@ -72,11 +75,16 @@ public class Scene extends JPanel implements Runnable{
 			e.printStackTrace();
 		}
 		
-		
 	}
 	
+	/**
+	 * Create the game for Load Game
+	 * @param frame Load Game interface
+	 * @param x the width of the map
+	 * @param y the height of the map
+	 */
 	public Scene(Load frame, String f) {
-		this.frame = frame;
+		Scene.frame = frame;
 		filename = f;
 		flag = false;
 		
@@ -91,7 +99,7 @@ public class Scene extends JPanel implements Runnable{
 			audioClip.open(audioStream);
 			FloatControl gainControl = (FloatControl) audioClip.getControl(FloatControl.Type.MASTER_GAIN);
 			gainControl.setValue((volume));
-			System.out.println("Audio started");
+			//System.out.println("Audio started");
 			audioClip.start();
 
 		}
@@ -102,7 +110,9 @@ public class Scene extends JPanel implements Runnable{
 		
 	}
 	
-	
+	/**
+	 * @effect initialize the game elements
+	 */
 	public void define() {
 		setLayout(new GridLayout(1,1,0,0));
 		if(flag) {
@@ -128,6 +138,9 @@ public class Scene extends JPanel implements Runnable{
 		
 	}
 	
+	/**
+	 * @effect draw the map, menu, buttons
+	 */
 	public void paintComponent( Graphics g ) {
 		if(isFirst) {
 			Width = getWidth();
@@ -152,7 +165,10 @@ public class Scene extends JPanel implements Runnable{
 	
 		
 	public static int spawnTime = 1600, spawnFrame = 0;
-		
+	
+	/**
+	 * @effect create monsters
+	 */
 	public static void monsterCreate() {
 		if(spawnFrame >= spawnTime) {
 			for(int i = 0; i < 3; i++) {
@@ -167,6 +183,9 @@ public class Scene extends JPanel implements Runnable{
 		}
 	}
 	
+	/**
+	 * @effect run the thread to keep updating the map
+	 */
 	public void run() {
 		while(true) {
 				if(!isFirst) {
@@ -187,6 +206,9 @@ public class Scene extends JPanel implements Runnable{
 		}
 	}
 	
+	/**
+	 * @effect the save window for save button
+	 */
 	public static void save() {
 		map.export("save_temp.txt");
 		EventQueue.invokeLater(new Runnable() {

@@ -4,17 +4,23 @@ import java.awt.*;
 import java.io.*;
 import javax.swing.*;
 
-import backEnd.Map;
-
 
 public class Load extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7497322639002036607L;
 	public static int width = 1600;
 	public static int height = 900;
-	private int worldWidth, worldHeight;
 	public File file;
 	static JFrame frame;
 	
+	/**
+	 * 
+	 * @param filename name of the file needs to be loaded
+	 * @effect create the load game interface
+	 */
 	public Load(String filename) {
 		int screen_height = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getHeight();
     	if (screen_height == 720) {
@@ -36,6 +42,11 @@ public class Load extends JFrame{
     	init(filename);
 	}
 	
+	/**
+	 * 
+	 * @param filename name of the file needs to be loaded
+	 * @effect load the map from given file
+	 */
 	public void init(String filename) {
 		setLayout(new GridLayout(1,1,0,0));
 		
@@ -44,24 +55,6 @@ public class Load extends JFrame{
     	
 		setVisible(true);
 	}
-	
-	/*public Load() {
-		setTitle("Tower Defence Maker");
-    	setSize(new Dimension(width, height));
-    	setLocationRelativeTo(null);
-    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	init();
-	}
-	
-	public void init() {
-		setLayout(new GridLayout(1,1,0,0));
-		
-		String filename = "map.txt";
-    	Scene screen = new Scene(this, filename);
-    	add(screen);
-    	
-		setVisible(true);
-	}*/
 	
 	
 }

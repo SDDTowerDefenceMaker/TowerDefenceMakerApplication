@@ -3,10 +3,8 @@ package frontEnd;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JSpinner;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.JScrollBar;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 import javax.swing.JButton;

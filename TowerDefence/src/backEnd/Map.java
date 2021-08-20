@@ -8,7 +8,7 @@ public class Map {
 	private Tile[][] Tiles;
 	private int x;
 	private int y;
-	private Material current_selected;
+	//private Material current_selected;
 	public ArrayList<MonsterCave> monsterCaves;
 	private Tile[][] TilesBackUp;
 	public Map(int x, int y) {

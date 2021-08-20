@@ -1,6 +1,7 @@
 package backEnd;
 
 public class Tile {
+	@SuppressWarnings("unused")
 	private Coordinate locationCoordinate;
 	private MapOBJ object;
 	private String objectType;//material, monstercave, towerbase, monster

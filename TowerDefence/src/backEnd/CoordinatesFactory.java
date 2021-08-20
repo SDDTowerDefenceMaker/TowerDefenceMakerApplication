@@ -1,7 +1,5 @@
 package backEnd;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 public class CoordinatesFactory {
 	static private HashMap<Coordinate, Coordinate> coordinateMap;

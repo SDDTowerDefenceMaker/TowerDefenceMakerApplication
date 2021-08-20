@@ -3,6 +3,10 @@ package frontEnd;
 import java.awt.*;
 
 public class Sprite extends Rectangle {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int index = 1;
 	public int xC, yC;
 	public int sprite_size = 52;
@@ -10,10 +14,16 @@ public class Sprite extends Rectangle {
 	public int walkCount = 0;
 	public boolean start = false;
 	
+	/**
+	 * @effect create monsters
+	 */
 	public Sprite() {
 		
 	}
 	
+	/**
+	 * @effect initialize each monster
+	 */
 	public void spawn() {
 		for(int i = 0; i < Scene.room.block.length; i++) {
 			setBounds(Scene.room.block[i][0].x, Scene.room.block[i][0].y, sprite_size, sprite_size);
@@ -28,6 +38,9 @@ public class Sprite extends Rectangle {
 	
 	public int walkFrame = 0, walkSpeed = 30;
 	
+	/**
+	 * @effect let monsters move
+	 */
 	public void simulate() {
 		if(walkFrame >= walkSpeed) {
 			if(direct == 0) {
@@ -73,6 +86,10 @@ public class Sprite extends Rectangle {
 		
 	}
 	
+	/**
+	 * 
+	 * @effect draw monsters
+	 */
 	public void draw(Graphics g) {
 		if(start) g.drawImage(Scene.tile_M, x, y, width, height, null);
 		//Scene.map.monsterCaves.get(0).getRow()

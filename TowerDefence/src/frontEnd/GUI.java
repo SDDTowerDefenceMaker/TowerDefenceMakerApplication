@@ -2,19 +2,22 @@ package frontEnd;
 
 import javax.swing.*;
 
-import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class GUI extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4942312225590095708L;
 	public static int width = 1600;
 	public static int height = 900;
 	JFrame frame;
 	
+	/**
+	 * create the game window
+	 */
     public GUI(int x, int y) {
     	int screen_height = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getHeight();
     	if (screen_height == 720) {
@@ -36,7 +39,12 @@ public class GUI extends JFrame{
     	init(x, y);
     	
     }
-    
+    /**
+     * 
+     * @param x the width of the map
+     * @param y the height of the map
+     * @effect initialize the game interface
+     */
     public void init(int x, int y) {
     	
     	setLayout(new GridLayout(1,1,0,0));
@@ -49,11 +57,6 @@ public class GUI extends JFrame{
     }
     
 
-//	public static void main(String[] args){
-//		new LwjglApplication(new GUI(24,13), "Castle Rush", 480*2, 320*2);
-//		//GUI new_game = new GUI(24, 13);
-//		
-//	}	
 	
 
 }

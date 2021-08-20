@@ -10,13 +10,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Color;
 
 public class LoadPage {
 
 	JFrame frame;
 	private JTextField filename;
-	private JLabel ErrorMessage;
 
 	/**
 	 * Launch the application.

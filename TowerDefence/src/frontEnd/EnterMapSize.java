@@ -10,23 +10,29 @@ public class EnterMapSize {
 	JFrame frame;
 	JTextField textField;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EnterMapSize window = new EnterMapSize();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					EnterMapSize window = new EnterMapSize();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 	
+	/**
+	 * @effect create the enter map size window
+	 */
 	public EnterMapSize() {
 		init();
 	}
 	
+	/**
+	 * @effect initialize the window with button and text area
+	 */
 	public void init() {
 		frame = new JFrame();
 		frame.setTitle("Tower Defence Maker - Creating");
@@ -77,6 +83,7 @@ public class EnterMapSize {
 							int tmpX = checkInt(MapSizeX.getText());
 							int tmpY = checkInt(MapSizeY.getText());
 							if(tmpX != -1 && tmpY != -1) {
+								@SuppressWarnings("unused")
 								GUI StartGame = new GUI(tmpX, tmpY);
 							}else{
 								JFrame err = new JFrame();
@@ -108,6 +115,11 @@ public class EnterMapSize {
 		frame.getContentPane().add(Button_Confirm);
 	}
 
+	/**
+	 * 
+	 * @param input user input value
+	 * @return the integer format of input value
+	 */
 	public int checkInt(String input) {
 		try {
 			return Integer.parseInt(input);

@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
@@ -52,7 +51,6 @@ public class ModeSelectionPage {
 		Button_New.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				@SuppressWarnings("unused")
 				EnterMapSize MapSize = new EnterMapSize();
 				MapSize.frame.setVisible(true);
 			}

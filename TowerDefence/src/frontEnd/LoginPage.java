@@ -1,7 +1,6 @@
 package frontEnd;
 
 import java.awt.EventQueue;
-import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
@@ -14,10 +13,6 @@ import java.awt.event.ActionEvent;
 public class LoginPage {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JPasswordField passwordField;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.

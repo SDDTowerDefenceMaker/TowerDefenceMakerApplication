@@ -1,17 +1,10 @@
 package frontEnd;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import backEnd.Map;
 import backEnd.Material;
-import backEnd.MonsterCave;
 import backEnd.Tile;
 import backEnd.Path;
 
@@ -25,8 +18,6 @@ public class Menu {
 	private int currentX[] = new int[worldWidth*worldHeight];
 	private int currentY[] = new int[worldWidth*worldHeight];
 	private int M = 0;
-	private int base = 1;
-	private MonsterCave cave;
 	
 	public static int hold = -1;
 	
@@ -41,10 +32,16 @@ public class Menu {
 	
 	public int flag = 0;
 	
+	/**
+	 * @effect create the menu bar
+	 */
 	public Menu() {
 		define();
 	}
 	
+	/**
+	 * @effect initialize items in the menu and health bar
+	 */
 	public void define() {
 		for(int i = 0; i < itemNum; i++) {
 			if (Scene.room.tileSize != 96) {itemSize = Scene.room.tileSize*2/3;}
@@ -56,7 +53,11 @@ public class Menu {
 		
 	}
 	
-
+	/**
+	 * 
+	 * @param item current holding tile
+	 * @effect check the operation when we drag an item from the menu
+	 */
 	public void click(int item) {
 		if(item == 1) {
 			for(int i = 0; i< itemNum; i++) {
@@ -107,11 +108,11 @@ public class Menu {
 		}
 	}
 	
-	
-	public void draw(Graphics g) {
-		
-	}
-	
+	/**
+	 * 
+	 * @param the map waiting to be painted
+	 * @effect draw the menu on the game interface
+	 */
 	public void draw(Graphics g, Map map) {
 		for(int i = 0; i < itemNum; i++) {
 			if(items[i].contains(Scene.mse)) {

@@ -3,17 +3,24 @@ package frontEnd;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * 
+ * @override mouse listener class
+ *
+ */
 public class MseListener implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		Scene.mse = new Point(e.getX(), e.getY());
+		//Scene.mse = new Point(e.getX(), e.getY());
+		Scene.mse = new Point(e.getX() + (GUI.width - Scene.Width)/2, e.getY() + (GUI.height - Scene.Height)/2);
 		
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		Scene.mse = new Point(e.getX(), e.getY());
+		//Scene.mse = new Point(e.getX(), e.getY());
+		Scene.mse = new Point(e.getX() - (GUI.width - Scene.Width)/2, e.getY() - (GUI.height - Scene.Height)/2);
 		
 	}
 
