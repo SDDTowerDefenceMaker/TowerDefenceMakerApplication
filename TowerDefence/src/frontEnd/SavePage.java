@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -84,6 +86,24 @@ public class SavePage {
 		});
 		continueButton.setBounds(168, 146, 93, 23);
 		frame.getContentPane().add(continueButton);
+		
+
+		JButton btnNewButton = new JButton("Community");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					java.awt.Desktop.getDesktop().browse(new java.net.URI("http://towerdm.com/"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnNewButton.setBounds(321, 10, 103, 23);
+		frame.getContentPane().add(btnNewButton);
 	}
 
 }
