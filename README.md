@@ -4,4 +4,4 @@ The project focuses on the self designing tower defense games. Users will be abl
 
 ## Installation
 
-Requirements: Java 8+.
+Requirements: Java 1.8+.
