@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.awt.event.ActionEvent;
 
 public class LoginPage {
@@ -102,6 +104,16 @@ public class LoginPage {
 		JButton Button_SignUp = new JButton("Sign Up");
 		Button_SignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					java.awt.Desktop.getDesktop().browse(new java.net.URI("http://towerdm.com/"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		Button_SignUp.setBounds(238, 171, 93, 23);
