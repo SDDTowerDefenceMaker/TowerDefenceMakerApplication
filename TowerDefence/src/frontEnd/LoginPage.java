@@ -133,7 +133,7 @@ public class LoginPage {
 				}
 			}
 		});
-		btnNewButton.setBounds(337, 10, 87, 23);
+		btnNewButton.setBounds(321, 10, 103, 23);
 		frame.getContentPane().add(btnNewButton);
 	}
 }
