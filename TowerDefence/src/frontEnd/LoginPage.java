@@ -118,5 +118,22 @@ public class LoginPage {
 		});
 		Button_SignUp.setBounds(238, 171, 93, 23);
 		frame.getContentPane().add(Button_SignUp);
+		
+		JButton btnNewButton = new JButton("Community");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					java.awt.Desktop.getDesktop().browse(new java.net.URI("http://towerdm.com/"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnNewButton.setBounds(337, 10, 87, 23);
+		frame.getContentPane().add(btnNewButton);
 	}
 }
